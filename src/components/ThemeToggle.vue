@@ -11,7 +11,7 @@
       tabindex="0"
       @click="toggle"
     >
-      <span class="toggle-indicator" :style="indicatorStyles" />
+      <span class="toggle-indicator" :style="indicatorPosition" />
     </span>
 
     <!-- icon -->
@@ -28,7 +28,7 @@ export default {
     };
   },
   computed: {
-    indicatorStyles() {
+    indicatorPosition() {
       return {
         transform: this.summer ? "translateX(27px)" : "translateX(2px)"
       };
@@ -46,7 +46,6 @@ export default {
 #toggle {
   display: flex;
   align-items: center;
-  margin-left: 4rem;
 }
 
 .toggle-container {
