@@ -26,6 +26,10 @@ export default {
   margin: 0;
   padding: 0;
 }
+/* 1 rem = 10px */
+:root {
+  font-size: 10px;
+}
 
 #app {
   font-family: "Montserrat", sans-serif;
