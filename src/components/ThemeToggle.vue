@@ -1,43 +1,47 @@
 <template>
   <div id="toggle">
     <!-- icon -->
-    <v-icon size="3rem" color="#fff">mdi-snowflake</v-icon>
+    <v-icon size="3rem" :color="styles.theme.textPrimary">mdi-snowflake</v-icon>
 
     <!-- actual switch -->
     <span
       class="toggle-container"
+      :style="{border: '2px solid' + styles.theme.textPrimary }"
       role="checkbox"
-      :aria-checked="summer.toString()"
+      :aria-checked="styles.isItSummer.toString()"
       tabindex="0"
-      @click="toggle"
+      @click="switchTheme"
     >
-      <span class="toggle-indicator" :style="indicatorPosition" />
+      <span class="toggle-indicator" :style="indicatorStyles" />
     </span>
 
     <!-- icon -->
-    <v-icon size="3rem" color="#fff">mdi-white-balance-sunny</v-icon>
+    <v-icon size="3rem" :color="styles.theme.textPrimary">mdi-white-balance-sunny</v-icon>
   </div>
 </template>
 
 <script>
+import { styles, switchTheme } from "../styling";
+
 export default {
   name: "CustomToggle",
   data() {
     return {
-      summer: false
+      styles
     };
   },
   computed: {
-    indicatorPosition() {
+    indicatorStyles() {
       return {
-        transform: this.summer ? "translateX(27px)" : "translateX(2px)"
+        transform: this.styles.isItSummer
+          ? "translateX(27px)"
+          : "translateX(2px)",
+        "background-color": styles.theme.accent
       };
     }
   },
   methods: {
-    toggle() {
-      this.summer = !this.summer;
-    }
+    switchTheme
   }
 };
 </script>
@@ -56,7 +60,6 @@ export default {
   width: 45px;
   height: 18px;
   border-radius: 25px;
-  border: 2px solid #ffffff;
 }
 
 .toggle-container:focus {
@@ -68,7 +71,6 @@ export default {
   position: absolute;
   height: 12px;
   width: 12px;
-  background-color: #03ff77;
   border-radius: 25px;
   transition: transform 0.4s ease;
 }
