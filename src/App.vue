@@ -29,12 +29,12 @@ export default {
 /* 1 rem = 10px */
 :root {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 #app {
   font-family: "Montserrat", sans-serif;
   background: #022b3a;
-  min-height: 200vh;
   box-sizing: border-box;
 }
 </style>

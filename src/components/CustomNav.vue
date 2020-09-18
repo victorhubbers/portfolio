@@ -15,7 +15,7 @@
       <HamburgerIcon v-else :open="showMenu" @click.native="toggleMenu" />
     </header>
 
-    <v-row v-if="showMenu" id="hamburger-menu" no-gutters>
+    <v-row v-if="showMenu && !$vuetify.breakpoint.lgAndUp" id="hamburger-menu" no-gutters :class="[ sticky ? 'sticky' : '']">
       <v-col>
         <nav>
           <ul>
@@ -82,6 +82,7 @@ export default {
 
 <style scoped>
 #navbar {
+  z-index: 100;
   width: 100%;
   position: fixed;
 }
@@ -144,6 +145,12 @@ a.current {
 }
 
 #hamburger-menu {
+  padding: 0.1rem 9vw;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 0.4s;
+}
+
+#hamburger-menu.sticky {
   padding: 0.1rem 9vw;
   background: #022b3a;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
