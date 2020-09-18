@@ -1,7 +1,7 @@
 <template>
-  <div id="navbar">
+  <div id="navbar" v-click-outside="closeMenu">
     <header :class="[ sticky ? 'sticky' : '']">
-      <a href="/" class="name">Victor Hubbers</a>
+      <a href="#home" class="name">Victor Hubbers</a>
 
       <nav v-if="$vuetify.breakpoint.lgAndUp" id="nav-content-extended">
         <ul>
@@ -12,23 +12,27 @@
         <ThemeToggle style="margin-left: 4rem;" />
       </nav>
 
-      <HamburgerIcon v-else @toggleMenu="showMenu = $event" />
+      <HamburgerIcon v-else :open="showMenu" @click.native="toggleMenu" />
     </header>
 
-    <div v-if="showMenu" id="hamburger-menu">
-      <nav>
-        <ul>
-          <li
-            v-for="link in links"
-            :key="link.ref"
-            :class="[ current === link.text ? 'current' : '']"
-          >
-            <a :href="link.ref">{{link.text}}</a>
-          </li>
-        </ul>
-      </nav>
-      <ThemeToggle style="margin-bottom: 1rem"/>
-    </div>
+    <v-row v-if="showMenu" id="hamburger-menu" no-gutters>
+      <v-col>
+        <nav>
+          <ul>
+            <li
+              v-for="link in links"
+              :key="link.ref"
+              :class="[ current === link.text ? 'current' : '']"
+            >
+              <a :href="link.ref">{{link.text}}</a>
+            </li>
+          </ul>
+        </nav>
+      </v-col>
+      <v-col>
+        <ThemeToggle style="justify-content: flex-end" />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -56,9 +60,6 @@ export default {
       ]
     };
   },
-  mounted() {
-    console.log(this.$vuetify);
-  },
   created() {
     window.addEventListener("scroll", this.handleScroll);
   },
@@ -68,6 +69,12 @@ export default {
   methods: {
     handleScroll() {
       this.sticky = window.scrollY > 0;
+    },
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+    },
+    closeMenu() {
+      this.showMenu = false;
     }
   }
 };

@@ -1,19 +1,15 @@
 <template>
-  <button class="menu-toggle" :class="show ? 'open' : ''" @click="toggleMenu"></button>
+  <button class="menu-toggle" :class="open ? 'open' : ''"></button>
 </template>
 
 <script>
 export default {
   name: "HamburgerIcon",
-  data() {
-    return {
-      show: false
-    };
-  },
-  methods: {
-    toggleMenu() {
-      this.show = !this.show;
-      this.$emit("toggleMenu", this.show);
+  props: {
+    open: {
+      type: Boolean,
+      required: true,
+      default: false
     }
   }
 };
