@@ -24,7 +24,7 @@ export default {
   background: transparent;
   border-top: 3px solid;
   border-bottom: 3px solid;
-  color: #ffffff;
+  color: var(--primary-text-color);
   font-size: 0;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -45,10 +45,6 @@ export default {
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-}
-
-button:hover {
-  color: #c1c1c1;
 }
 
 button.open {

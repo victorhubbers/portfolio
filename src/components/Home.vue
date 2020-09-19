@@ -24,11 +24,7 @@ export default {
 
 <style scoped>
 #home {
-  background: linear-gradient(
-    180deg,
-    rgba(15, 8, 75, 0.14) 26.56%,
-    rgba(15, 8, 75, 0) 64.06%
-  );
+  background: var(--hero-gradient);
 }
 #background-img {
   width: 100%;
@@ -37,9 +33,9 @@ export default {
   top: 0px;
 
   background-size: cover;
-  background-color: #022b3a;
-  background-image: url(../assets/mountains-big.jpg);
-  background-blend-mode: lighten;
+  background-color: var(--primary-color);
+  background-image: var(--background-url);
+  background-blend-mode: var(--background-blend-mode);
   opacity: 0.5;
 }
 
@@ -58,19 +54,19 @@ p {
 }
 
 p.left {
-  color: #ffffff;
+  color: var(--primary-text-color);
   text-align: left;
 }
 
 h1.center {
-  color: #ffffff;
+  color: var(--primary-text-color);
   text-align: center;
   font-weight: 700;
   font-size: 5rem;
 }
 
 p.right {
-  color: #ffffff;
+  color: var(--primary-text-color);
   text-align: right;
 }
 </style>

@@ -1,44 +1,40 @@
 <template>
   <div id="toggle">
-    <!-- icon -->
-    <v-icon size="3rem" :color="styles.theme.textPrimary">mdi-snowflake</v-icon>
+    <v-icon color="var(--primary-text-color)" size="3rem">mdi-snowflake</v-icon>
 
     <!-- actual switch -->
     <span
       class="toggle-container"
-      :style="{ border: '2px solid' + styles.theme.textPrimary }"
       role="checkbox"
-      :aria-checked="styles.isItSummer.toString()"
+      :aria-checked="themeState.isItSummer.toString()"
       tabindex="0"
       @click="switchTheme"
     >
-      <span class="toggle-indicator" :style="indicatorStyles" />
+      <span class="toggle-indicator" :style="indicatorState" />
     </span>
 
-    <!-- icon -->
-    <v-icon size="3rem" :color="styles.theme.textPrimary"
+    <v-icon color="var(--primary-text-color)" size="3rem"
       >mdi-white-balance-sunny</v-icon
     >
   </div>
 </template>
 
 <script>
-import { styles, switchTheme } from "@/styling";
+import { themeState, switchTheme } from "@/styling";
 
 export default {
   name: "ThemeToggle",
   data() {
     return {
-      styles
+      themeState
     };
   },
   computed: {
-    indicatorStyles() {
+    indicatorState() {
       return {
-        transform: this.styles.isItSummer
+        transform: this.themeState.isItSummer
           ? "translateX(27px)"
-          : "translateX(2px)",
-        "background-color": styles.theme.accent
+          : "translateX(2px)"
       };
     }
   },
@@ -55,6 +51,7 @@ export default {
 }
 
 .toggle-container {
+  border: 2px solid var(--primary-text-color);
   margin: 0 1rem;
   display: inline-block;
   position: relative;
@@ -69,11 +66,11 @@ export default {
 }
 
 .toggle-indicator {
+  background: var(--accent-color);
   margin-top: 1px;
   position: absolute;
   height: 12px;
   width: 12px;
   border-radius: 25px;
-  transition: transform 0.4s ease;
 }
 </style>
