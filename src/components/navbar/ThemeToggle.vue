@@ -6,7 +6,7 @@
     <!-- actual switch -->
     <span
       class="toggle-container"
-      :style="{border: '2px solid' + styles.theme.textPrimary }"
+      :style="{ border: '2px solid' + styles.theme.textPrimary }"
       role="checkbox"
       :aria-checked="styles.isItSummer.toString()"
       tabindex="0"
@@ -16,15 +16,17 @@
     </span>
 
     <!-- icon -->
-    <v-icon size="3rem" :color="styles.theme.textPrimary">mdi-white-balance-sunny</v-icon>
+    <v-icon size="3rem" :color="styles.theme.textPrimary"
+      >mdi-white-balance-sunny</v-icon
+    >
   </div>
 </template>
 
 <script>
-import { styles, switchTheme } from "../styling";
+import { styles, switchTheme } from "@/styling";
 
 export default {
-  name: "CustomToggle",
+  name: "ThemeToggle",
   data() {
     return {
       styles

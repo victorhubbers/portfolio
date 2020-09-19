@@ -1,12 +1,16 @@
 <template>
   <div id="navbar" v-click-outside="closeMenu">
-    <header :class="[ sticky ? 'sticky' : '']">
+    <header :class="[sticky ? 'sticky' : '']">
       <a href="#home" class="name">Victor Hubbers</a>
 
       <nav v-if="$vuetify.breakpoint.lgAndUp" id="nav-content-extended">
         <ul>
           <li v-for="link in links" :key="link.ref">
-            <a :href="link.ref" :class="[ current === link.text ? 'current' : '']">{{link.text}}</a>
+            <a
+              :href="link.ref"
+              :class="[current === link.text ? 'current' : '']"
+              >{{ link.text }}</a
+            >
           </li>
         </ul>
         <ThemeToggle style="margin-left: 4rem;" />
@@ -15,16 +19,21 @@
       <HamburgerIcon v-else :open="showMenu" @click.native="toggleMenu" />
     </header>
 
-    <v-row v-if="showMenu && !$vuetify.breakpoint.lgAndUp" id="hamburger-menu" no-gutters :class="[ sticky ? 'sticky' : '']">
+    <v-row
+      v-if="showMenu && !$vuetify.breakpoint.lgAndUp"
+      id="hamburger-menu"
+      no-gutters
+      :class="[sticky ? 'sticky' : '']"
+    >
       <v-col>
         <nav>
           <ul>
             <li
               v-for="link in links"
               :key="link.ref"
-              :class="[ current === link.text ? 'current' : '']"
+              :class="[current === link.text ? 'current' : '']"
             >
-              <a :href="link.ref">{{link.text}}</a>
+              <a :href="link.ref">{{ link.text }}</a>
             </li>
           </ul>
         </nav>
@@ -37,11 +46,11 @@
 </template>
 
 <script>
-import ThemeToggle from "@/components/ThemeToggle.vue";
-import HamburgerIcon from "@/components/HamburgerIcon.vue";
+import ThemeToggle from "@/components/navbar/ThemeToggle.vue";
+import HamburgerIcon from "@/components/navbar/HamburgerIcon.vue";
 
 export default {
-  name: "ThemeNav",
+  name: "CustomNav",
   components: {
     ThemeToggle,
     HamburgerIcon
@@ -162,7 +171,7 @@ a.current {
 }
 
 #hamburger-menu li.current {
-  background: url("../assets/greendot.svg") no-repeat 0px 7px;
+  background: url("../../assets/greendot.svg") no-repeat 0px 7px;
   list-style-type: none;
   padding: 0px 0px 1px 24px;
 }

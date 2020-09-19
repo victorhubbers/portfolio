@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import CustomNav from "@/components/CustomNav";
+import CustomNav from "@/components/navbar/CustomNav";
 
 export default {
   name: "App",
