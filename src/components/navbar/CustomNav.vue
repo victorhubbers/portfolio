@@ -1,6 +1,6 @@
 <template>
   <div id="navbar" v-click-outside="closeMenu">
-    <header :class="[sticky ? 'sticky' : '']">
+    <header :class="[sticky || showMenu ? 'sticky' : '']">
       <a href="#home" class="name">Victor Hubbers</a>
 
       <nav v-if="$vuetify.breakpoint.lgAndUp" id="nav-content-extended">
@@ -23,7 +23,7 @@
       v-if="showMenu && !$vuetify.breakpoint.lgAndUp"
       id="hamburger-menu"
       no-gutters
-      :class="[sticky ? 'sticky' : '']"
+      class="sticky"
     >
       <v-col>
         <nav>
@@ -32,6 +32,7 @@
               v-for="link in links"
               :key="link.ref"
               :class="[current === link.text ? 'current' : '']"
+              @click="showMenu = false"
             >
               <a :href="link.ref">{{ link.text }}</a>
             </li>
@@ -155,7 +156,6 @@ header.sticky {
 #hamburger-menu {
   padding: 0.1rem 9vw;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  /* transition: 0.4s; */
 }
 
 #hamburger-menu.sticky {
