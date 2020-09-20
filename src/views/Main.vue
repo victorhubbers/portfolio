@@ -1,16 +1,18 @@
 <template>
-  <main style="height: 500vh">
+  <main>
     <Home />
+    <Projects />
   </main>
 </template>
 
 <script>
 // @ is an alias to /src
-import Home from "@/components/Home";
+import Home from "./main-sections/Home";
+import Projects from "./main-sections/Projects";
 
 export default {
   name: "Main",
-  components: { Home }
+  components: { Home, Projects }
 };
 </script>
 
