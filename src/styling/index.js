@@ -14,8 +14,6 @@ export function switchTheme() {
   }
 }
 
-// TODO: Transition
-
 //default theme is winter, called in created() @ App.vue
 export function setTheme(theme = "winter") {
   let root = document.documentElement;
@@ -24,5 +22,5 @@ export function setTheme(theme = "winter") {
 
   setTimeout(() => {
     root.classList.remove("transition");
-  }, 400);
+  }, 300);
 }

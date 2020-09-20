@@ -1,15 +1,14 @@
 <template>
   <section id="home">
     <div id="background-img" />
-    <div id="content">
+    <div id="headline">
       <div style="width: fit-content">
         <p class="left">Hey, I'm Victor and I'm a</p>
         <h1 class="center">Software Developer</h1>
         <p class="right">welcome to my portfolio.</p>
       </div>
-
-      <ScrollArrow />
     </div>
+    <ScrollArrow />
   </section>
 </template>
 
@@ -39,7 +38,7 @@ export default {
   opacity: 0.5;
 }
 
-#content {
+#headline {
   position: absolute;
   width: 100%;
   min-height: 100vh;

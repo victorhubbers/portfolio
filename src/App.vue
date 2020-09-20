@@ -32,6 +32,13 @@ export default {
   padding: 0;
 }
 
+/* all section titles same styling */
+.section-title {
+  font-weight: bold;
+  font-size: 3.6rem;
+  color: var(--primary-text-color);
+}
+
 #app {
   font-family: "Montserrat", sans-serif;
   background: var(--primary-color);
@@ -50,8 +57,8 @@ export default {
   --secondary-color: #bfdbf7;
   --secondary-tint: #d1e5fa;
   --accent-color: #03ff77;
-  --cta-text-color: #022b3a;
 
+  --cta-text-color: #022b3a;
   --primary-text-color: #ffffff;
   --secondary-text-color: #022b3a;
 
@@ -71,8 +78,8 @@ export default {
   --secondary-color: #9ee488;
   --secondary-tint: #aff299;
   --accent-color: #8c08ba;
-  --cta-text-color: #ffffff;
 
+  --cta-text-color: #ffffff;
   --primary-text-color: #000000;
   --secondary-text-color: #000000;
 
@@ -90,7 +97,7 @@ html.transition,
 html.transition *,
 html.transition *:after,
 html.transition *:before {
-  transition: all 400ms !important;
+  transition: all 300ms !important;
   transition-delay: 0 !important;
 }
 </style>
