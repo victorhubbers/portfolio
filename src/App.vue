@@ -38,6 +38,9 @@ export default {
   font-size: 3.6rem;
   color: var(--primary-text-color);
 }
+.section-title.secondary {
+  color: var(--secondary-text-color);
+}
 
 #app {
   font-family: "Montserrat", sans-serif;

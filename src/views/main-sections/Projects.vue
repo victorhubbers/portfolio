@@ -30,6 +30,6 @@ export default {
 /* vuetify container class */
 .container {
   padding: 0;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 </style>

@@ -12,6 +12,15 @@
         options: { threshold }
       }"
     />
+
+    <div id="colored-banner">
+      <About
+        v-intersect="{
+          handler: onIntersect,
+          options: { threshold }
+        }"
+      />
+    </div>
   </main>
 </template>
 
@@ -19,11 +28,12 @@
 // @ is an alias to /src
 import Home from "./main-sections/Home";
 import Projects from "./main-sections/Projects";
+import About from "./main-sections/About";
 import { threshold, onIntersect } from "@/utils/observer";
 
 export default {
   name: "Main",
-  components: { Home, Projects },
+  components: { Home, Projects, About },
   data() {
     return {
       threshold
