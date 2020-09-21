@@ -6,11 +6,9 @@
       <nav v-if="$vuetify.breakpoint.lgAndUp" id="nav-content-extended">
         <ul>
           <li v-for="link in links" :key="link.ref">
-            <a
-              :href="link.ref"
-              :class="[current === link.text ? 'current' : '']"
-              >{{ link.text }}</a
-            >
+            <a :href="link.ref" :class="activeClass(link.ref)">{{
+              link.text
+            }}</a>
           </li>
         </ul>
         <ThemeToggle style="margin-left: 4rem;" />
@@ -31,7 +29,7 @@
             <li
               v-for="link in links"
               :key="link.ref"
-              :class="[current === link.text ? 'current' : '']"
+              :class="activeClass(link.ref)"
               @click="showMenu = false"
             >
               <a :href="link.ref">{{ link.text }}</a>
@@ -49,6 +47,7 @@
 <script>
 import ThemeToggle from "@/components/navbar/ThemeToggle.vue";
 import HamburgerIcon from "@/components/navbar/HamburgerIcon.vue";
+import { currentSection } from "@/utils/observer.js";
 
 export default {
   name: "CustomNav",
@@ -58,9 +57,9 @@ export default {
   },
   data() {
     return {
+      currentSection,
       sticky: false,
       showMenu: false,
-      current: "Home",
       links: [
         { ref: "#home", text: "Home" },
         { ref: "#projects", text: "Projects" },
@@ -69,6 +68,11 @@ export default {
         { ref: "#contact", text: "Contact" }
       ]
     };
+  },
+  computed: {
+    activeClass() {
+      return ref => (this.currentSection.id === ref ? "active" : "");
+    }
   },
   created() {
     window.addEventListener("scroll", this.registerScrollY);
@@ -148,7 +152,7 @@ header.sticky {
   font-size: 2rem;
   transition: 0.4s;
 }
-#nav-content-extended a.current {
+#nav-content-extended a.active {
   padding-bottom: 5px;
   border-bottom: 3px solid var(--accent-color);
 }
@@ -169,10 +173,11 @@ header.sticky {
   list-style: none;
 }
 
-#hamburger-menu li.current {
+#hamburger-menu li.active {
   background: var(--mobile-listdot-url) no-repeat 0px 7px;
   list-style-type: none;
   padding: 0px 0px 1px 24px;
+  transition: 0.6s;
 }
 
 #hamburger-menu li a {
