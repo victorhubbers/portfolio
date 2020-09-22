@@ -20,6 +20,12 @@
           options: { threshold }
         }"
       />
+      <Skills
+        v-intersect="{
+          handler: onIntersect,
+          options: { threshold }
+        }"
+      />
     </div>
   </main>
 </template>
@@ -29,11 +35,12 @@
 import Home from "./main-sections/Home";
 import Projects from "./main-sections/Projects";
 import About from "./main-sections/About";
+import Skills from "./main-sections/Skills";
 import { threshold, onIntersect } from "@/utils/observer";
 
 export default {
   name: "Main",
-  components: { Home, Projects, About },
+  components: { Home, Projects, About, Skills },
   data() {
     return {
       threshold

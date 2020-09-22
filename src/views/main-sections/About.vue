@@ -60,7 +60,7 @@ export default {
 p {
   font-weight: 400;
   font-size: 2rem;
-  line-height: 2.8rem;
+  line-height: 2.6rem;
 
   color: var(--secondary-text-color);
 }

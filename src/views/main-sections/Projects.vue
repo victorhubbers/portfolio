@@ -4,7 +4,7 @@
 
     <v-container fluid>
       <v-row>
-        <v-col v-for="n in 10" :key="n" lg="3" md="4" sm="6" xs="12">
+        <v-col v-for="n in 10" :key="n" cols="12" sm="6" md="4" lg="4">
           <ProjectCard />
         </v-col>
       </v-row>
