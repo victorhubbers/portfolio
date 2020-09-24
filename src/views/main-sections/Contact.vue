@@ -4,9 +4,9 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" md="8">
-          <!-- clearable? -->
           <v-row>
             <v-col cols="12" sm="6">
+              <h4>Your name</h4>
               <v-text-field
                 filled
                 hide-details
@@ -15,6 +15,7 @@
               ></v-text-field>
             </v-col>
             <v-col cols="12" sm="6">
+              <h4>Your email <span>(optional)</span></h4>
               <v-text-field
                 filled
                 hide-details
@@ -23,6 +24,7 @@
               ></v-text-field>
             </v-col>
             <v-col cols="12">
+              <h4>Your message to me</h4>
               <v-textarea
                 filled
                 hide-details
@@ -30,12 +32,18 @@
                 class="text-field"
               ></v-textarea>
             </v-col>
+            <v-col cols="12" sm="2">
+              <v-btn
+                :dark="themeState.isItSummer"
+                color="var(--accent-color)"
+                depressed
+                >Submit</v-btn
+              >
+            </v-col>
           </v-row>
         </v-col>
-        <!-- <v-spacer></v-spacer> -->
-        <!-- <v-col v-if="$vuetify.breakpoint.smAndDown" cols="2" sm="3"></v-col> -->
         <v-col cols="12" md="4">
-          <!-- icon + text -->
+          <Lightbulb :height="75" />
         </v-col>
       </v-row>
     </v-container>
@@ -43,7 +51,19 @@
 </template>
 
 <script>
-export default {};
+import { themeState } from "@/styling";
+import Lightbulb from "@/components/Lightbulb";
+export default {
+  name: "Contact",
+  components: {
+    Lightbulb
+  },
+  data() {
+    return {
+      themeState
+    };
+  }
+};
 </script>
 
 <style scoped>
@@ -57,12 +77,15 @@ export default {};
   margin-top: 2rem;
 }
 
-p {
+h4 {
   font-weight: 400;
-  font-size: 2rem;
-  line-height: 2.6rem;
+  font-size: 1.6rem;
+  line-height: 3rem;
+  color: var(--primary-text-color);
+}
 
-  color: var(--secondary-text-color);
+h4 span {
+  font-size: 1.2rem;
 }
 
 .text-field {
@@ -72,5 +95,10 @@ p {
 .text-field >>> .v-text-field__slot input,
 .text-field >>> .v-text-field__slot textarea {
   color: var(--primary-text-color);
+}
+
+.v-btn {
+  font-weight: bold;
+  font-size: 1.3rem !important;
 }
 </style>
