@@ -50,10 +50,10 @@ export default {
 p {
   font-weight: 600;
   font-size: 1.8rem;
+  color: var(--primary-text-color);
 }
 
 p.left {
-  color: var(--primary-text-color);
   text-align: left;
 }
 
@@ -65,7 +65,6 @@ h1.center {
 }
 
 p.right {
-  color: var(--primary-text-color);
   text-align: right;
 }
 </style>

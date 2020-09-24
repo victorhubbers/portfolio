@@ -50,7 +50,7 @@ import HamburgerIcon from "@/components/navbar/HamburgerIcon.vue";
 import { currentSection } from "@/utils/observer.js";
 
 export default {
-  name: "CustomNav",
+  name: "Navbar",
   components: {
     ThemeToggle,
     HamburgerIcon

@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-    <CustomNav />
+    <Navbar />
     <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
-import CustomNav from "@/components/navbar/CustomNav";
+import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/Footer";
 import { setTheme } from "@/styling";
 
 export default {
   name: "App",
 
   components: {
-    CustomNav
+    Navbar,
+    Footer
   },
 
   data: () => ({
