@@ -6,6 +6,7 @@
         options: { threshold }
       }"
     />
+
     <Projects
       v-intersect="{
         handler: onIntersect,
@@ -27,20 +28,24 @@
         }"
       />
     </div>
+
+    <Contact
+      v-intersect="{
+        handler: onIntersect,
+        options: { threshold }
+      }"
+    />
   </main>
 </template>
 
 <script>
 // @ is an alias to /src
-import Home from "./main-sections/Home";
-import Projects from "./main-sections/Projects";
-import About from "./main-sections/About";
-import Skills from "./main-sections/Skills";
+import * as mainSections from "./main-sections"
 import { threshold, onIntersect } from "@/utils/observer";
 
 export default {
   name: "Main",
-  components: { Home, Projects, About, Skills },
+  components: { ...mainSections },
   data() {
     return {
       threshold
