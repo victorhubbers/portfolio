@@ -22,7 +22,7 @@
         </v-col>
         <v-spacer></v-spacer>
         <v-col v-if="$vuetify.breakpoint.smAndDown" cols="2" sm="3"></v-col>
-        <v-col cols="8" sm="6" md="4" lg="3" xl="2">
+        <v-col cols="8" sm="6" md="4" lg="3" xl="3">
           <v-img :src="imageSrc"></v-img>
         </v-col>
       </v-row>
