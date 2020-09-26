@@ -48,7 +48,7 @@
       </v-col>
       <v-col cols="12" sm="9">
         <div style="display: flex; align-items: center;">
-          <v-icon :color="submission.color" size="3rem">{{
+          <v-icon :color="submission.color" large>{{
             submission.icon
           }}</v-icon>
           <p
