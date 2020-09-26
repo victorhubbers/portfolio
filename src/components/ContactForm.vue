@@ -1,6 +1,5 @@
 <template>
   <form method="post" @submit.prevent="submitForm">
-    <input type="hidden" name="form-name" value="portfolio-contact-form" />
     <v-row>
       <v-col cols="12" sm="6">
         <label>Your name</label>
@@ -37,7 +36,7 @@
           class="text-field"
         ></v-textarea>
       </v-col>
-      <v-col cols="12" sm="2">
+      <v-col cols="12" sm="3">
         <v-btn
           type="submit"
           block
@@ -46,6 +45,23 @@
           depressed
           >Submit</v-btn
         >
+      </v-col>
+      <v-col cols="12" sm="9">
+        <div style="display: flex; align-items: center;">
+          <v-icon :color="submission.color" size="3rem">{{
+            submission.icon
+          }}</v-icon>
+          <p
+            :style="{
+              color: submission.color,
+              fontSize: 1.3 + 'rem',
+              fontWeight: 500,
+              marginLeft: 1 + 'rem'
+            }"
+          >
+            {{ submission.text }}
+          </p>
+        </div>
       </v-col>
     </v-row>
   </form>
@@ -62,10 +78,26 @@ export default {
         name: "",
         email: "",
         message: ""
-      }
+      },
+      submission: { icon: "", color: "", text: "" },
+      wrongFields: ""
     };
   },
   methods: {
+    validateForm() {
+      if (this.form.name && this.form.message) {
+        return true;
+      } else {
+        if (!this.form.name && !this.form.message) {
+          this.wrongFields = "name and message fields.";
+        } else if (!this.form.name) {
+          this.wrongFields = "name field.";
+        } else {
+          this.wrongFields = "message field.";
+        }
+        return false;
+      }
+    },
     encode(data) {
       return Object.keys(data)
         .map(
@@ -74,20 +106,43 @@ export default {
         .join("&");
     },
     submitForm() {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: this.encode({
-          "form-name": "portfolio-contact-form",
-          ...this.form
+      if (!this.validateForm()) {
+        this.submission = {
+          icon: "mdi-alert-circle",
+          color: "#FF4444",
+          text: `Please fill in the ${this.wrongFields}`
+        };
+      } else {
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: this.encode({
+            "form-name": "portfolio-contact-form",
+            ...this.form
+          })
         })
-      })
-        .then(() => {
-          console.log("thanks");
-        })
-        .catch(() => {
-          console.log("error");
-        });
+          .then(() => {
+            this.submission = {
+              icon: "mdi-check-circle",
+              color: "#00C851",
+              text: "Thanks!"
+            };
+
+            this.form = {
+              name: "",
+              email: "",
+              message: ""
+            };
+          })
+          .catch(() => {
+            this.submission = {
+              icon: "mdi-alert-circle",
+              color: "#FF4444",
+              text:
+                "Something went wrong, please contact me at victorhubbers@live.nl instead."
+            };
+          });
+      }
     }
   }
 };
