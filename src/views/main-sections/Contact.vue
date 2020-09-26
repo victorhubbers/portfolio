@@ -34,6 +34,7 @@
             </v-col>
             <v-col cols="12" sm="2">
               <v-btn
+                block
                 :dark="themeState.isItSummer"
                 color="var(--accent-color)"
                 depressed
