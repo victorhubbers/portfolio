@@ -21,6 +21,17 @@
           options: { threshold }
         }"
       />
+      <!-- Divider svg shape -->
+      <svg
+        style="margin-bottom: -3px"
+        viewBox="0 0 1440 58"
+        fill="var(--secondary-tint)"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 58H720.001H1440L1440 26.2219C1440 26.2219 1301 85.2214 720.001 26.2219C139 -32.7776 0 26.2219 0 26.2219V58Z"
+        />
+      </svg>
       <Skills
         v-intersect="{
           handler: onIntersect,
@@ -40,7 +51,7 @@
 
 <script>
 // @ is an alias to /src
-import * as mainSections from "./main-sections"
+import * as mainSections from "./main-sections";
 import { threshold, onIntersect } from "@/utils/observer";
 
 export default {
@@ -58,4 +69,7 @@ export default {
 </script>
 
 <style scoped>
+#colored-banner {
+  background: var(--secondary-color);
+}
 </style>

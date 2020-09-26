@@ -48,7 +48,6 @@ export default {
 #about {
   width: 100%;
   padding: 7rem 9vw 5rem;
-  background: var(--secondary-color);
 }
 
 /* vuetify container class */
