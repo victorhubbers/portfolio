@@ -1,5 +1,5 @@
 <template>
-  <main id="">
+  <main>
     <Home
       v-intersect="{
         handler: onIntersect,

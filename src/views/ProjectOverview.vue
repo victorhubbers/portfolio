@@ -1,37 +1,65 @@
 <template>
-  <div id="project-AA">
+  <div id="project-details">
     <h2 class="section-title">{{ project.title }}</h2>
 
-    <ul>
-      <li v-for="(highlight, idx) in project.highlights" :key="idx">
-        {{ highlight }}
-      </li>
-    </ul>
+    <v-container fluid>
+      <v-row>
+        <!-- left, top/bottom -->
+        <v-col cols="12" md="5">
+          <ul>
+            <li v-for="(highlight, idx) in project.highlights" :key="idx">
+              {{ highlight }}
+            </li>
+          </ul>
 
-    <p>{{ project.description }}</p>
+          <p v-if="$vuetify.breakpoint.mdAndUp" style="margin-top: 5rem">
+            {{ project.description }}
+          </p>
+        </v-col>
 
-    <div id="demo"></div>
+        <!-- right/middle -->
+        <v-spacer></v-spacer>
+        <v-col cols="12" md="6">
+          <div id="demo"></div>
 
-    <div id="chip-container">
-      <v-chip
-        v-for="(technology, index) in technologies"
-        :key="index"
-        color="var(--secondary-color)"
-        >{{ technology }}</v-chip
-      >
-    </div>
+          <ChipRow :chips="project.technologies" />
 
-    <v-btn :dark="themeState.isItSummer" color="var(--accent-color)" depressed
-      >Visit</v-btn
-    >
-    <v-btn outlined color="var(--accent-color)" depressed>View code</v-btn>
+          <v-row id="button-row" no-gutters>
+            <v-col cols="5" md="3" lg="2">
+              <v-btn
+                :dark="themeState.isItSummer"
+                block
+                color="var(--accent-color)"
+                depressed
+              >
+                Visit
+                <v-icon color="var(--secondary-text-color)" right small
+                  >mdi-launch</v-icon
+                >
+              </v-btn>
+            </v-col>
+            <v-col cols="2" md="1"><!-- spacer --></v-col>
+            <v-col cols="5" md="3" lg="2">
+              <v-btn outlined block color="var(--accent-color)" depressed
+                >View code</v-btn
+              >
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col v-if="!$vuetify.breakpoint.mdAndUp">
+          <p>{{ project.description }}</p>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
 <script>
 import { themeState } from "@/styling";
+import ChipRow from "@/components/ChipRow";
 export default {
   name: "ProjectOverview",
+  components: { ChipRow },
   data() {
     return {
       themeState,
@@ -44,24 +72,35 @@ export default {
           "Complete process",
           "Daily stand-ups"
         ],
+        demo: {
+          previewType: "video",
+          previewAsset: "",
+          codeAvailable: false,
+          liveLink: ""
+        },
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      },
-      technologies: ["Vue.js", "AWS", "Quasar", "Node.js", "Firebase"]
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        technologies: ["Vue.js", "Vuex", "AWS", "Quasar", "Node.js", "Firebase"]
+      }
     };
   }
 };
 </script>
 
 <style scoped>
-#project-AA {
+#project-details {
   width: 100%;
+  min-height: calc(100vh - 100px);
   padding: 12rem 9vw 7rem;
-  height: 200vh;
+}
+
+/* vuetify container class */
+.container {
+  padding: 0;
+  margin-top: 5rem;
 }
 
 ul {
-  margin-top: 5rem;
   list-style-type: none;
   color: var(--primary-text-color);
   line-height: 2.6rem;
@@ -73,7 +112,6 @@ ul > li:before {
 }
 
 p {
-  margin-top: 5rem;
   font-weight: normal;
   font-size: 2rem;
   line-height: 2.4rem;
@@ -82,16 +120,12 @@ p {
 
 #demo {
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   background: grey;
 }
 
-.v-chip {
-  padding: 1rem 2rem;
-  margin: 1rem 1.5rem 0rem 0rem;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
+#button-row {
+  margin: 2rem 0;
 }
 
 .v-btn {

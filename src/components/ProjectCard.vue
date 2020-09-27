@@ -20,6 +20,7 @@
               :light="!themeState.isItSummer"
               color="var(--accent-color)"
               depressed
+              @click="viewProjectDetails"
               >More info</v-btn
             >
           </v-overlay>
@@ -36,7 +37,7 @@ export default {
   props: {
     project: {
       type: Object,
-    //   required: true,
+      //   required: true,
       default() {
         return {
           image: "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg",
@@ -46,9 +47,16 @@ export default {
       }
     }
   },
-  data: () => ({
-    themeState
-  })
+  data() {
+    return {
+      themeState
+    };
+  },
+  methods: {
+    viewProjectDetails() {
+      this.$router.push("/projects/temp");
+    }
+  }
 };
 </script>
 
@@ -67,7 +75,7 @@ export default {
 }
 
 .v-btn {
-    font-weight: 500;
-    font-size: 1.0rem !important;
+  font-weight: 500;
+  font-size: 1rem !important;
 }
 </style>
