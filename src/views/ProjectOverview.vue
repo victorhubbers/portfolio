@@ -33,9 +33,7 @@
                 depressed
               >
                 Visit
-                <v-icon color="var(--secondary-text-color)" right small
-                  >mdi-launch</v-icon
-                >
+                <v-icon :color="iconColor" right small>mdi-launch</v-icon>
               </v-btn>
             </v-col>
             <v-col cols="2" md="1"><!-- spacer --></v-col>
@@ -83,6 +81,11 @@ export default {
         technologies: ["Vue.js", "Vuex", "AWS", "Quasar", "Node.js", "Firebase"]
       }
     };
+  },
+  computed: {
+    iconColor() {
+      return themeState.isItSummer ? "white" : "var(--secondary-text-color)";
+    }
   }
 };
 </script>
