@@ -52,7 +52,7 @@
 <script>
 // @ is an alias to /src
 import * as mainSections from "./main-sections";
-import { threshold, onIntersect } from "@/utils/observer";
+import { threshold, onIntersect } from "@/state-management/observer";
 
 export default {
   name: "Main",

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { themeState } from "@/styling";
+import { themeState } from "@/state-management/styling";
 export default {
   name: "Footer",
   data() {

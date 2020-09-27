@@ -9,7 +9,7 @@
 <script>
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
-import { setTheme } from "@/styling";
+import { setTheme } from "@/state-management/styling";
 
 export default {
   name: "App",

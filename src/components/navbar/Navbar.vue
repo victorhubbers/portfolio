@@ -47,7 +47,7 @@
 <script>
 import ThemeToggle from "@/components/navbar/ThemeToggle.vue";
 import HamburgerIcon from "@/components/navbar/HamburgerIcon.vue";
-import { currentSection } from "@/utils/observer.js";
+import { currentSection } from "@/state-management/observer.js";
 
 export default {
   name: "Navbar",

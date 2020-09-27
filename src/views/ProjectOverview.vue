@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { themeState } from "@/styling";
+import { themeState } from "@/state-management/styling";
 import ChipRow from "@/components/ChipRow";
 export default {
   name: "ProjectOverview",

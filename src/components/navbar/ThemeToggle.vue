@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { themeState, switchTheme } from "@/styling";
+import { themeState, switchTheme } from "@/state-management/styling";
 
 export default {
   name: "ThemeToggle",
