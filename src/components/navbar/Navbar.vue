@@ -1,14 +1,14 @@
 <template>
   <div id="navbar" v-click-outside="closeMenu">
     <header :class="[sticky || showMenu ? 'sticky' : '']">
-      <a href="#home" class="name">Victor Hubbers</a>
+      <router-link to="/#home" class="name">Victor Hubbers</router-link>
 
       <nav v-if="$vuetify.breakpoint.lgAndUp" id="nav-content-extended">
         <ul>
-          <li v-for="link in links" :key="link.ref">
-            <a :href="link.ref" :class="activeClass(link.ref)">{{
+          <li v-for="link in links" :key="link.to">
+            <router-link :to="link.to" :class="activeClass(link.to)">{{
               link.text
-            }}</a>
+            }}</router-link>
           </li>
         </ul>
         <ThemeToggle style="margin-left: 4rem;" />
@@ -28,11 +28,11 @@
           <ul>
             <li
               v-for="link in links"
-              :key="link.ref"
-              :class="activeClass(link.ref)"
+              :key="link.to"
+              :class="activeClass(link.to)"
               @click="showMenu = false"
             >
-              <a :href="link.ref">{{ link.text }}</a>
+              <router-link :to="link.to">{{ link.text }}</router-link>
             </li>
           </ul>
         </nav>
@@ -61,17 +61,17 @@ export default {
       sticky: false,
       showMenu: false,
       links: [
-        { ref: "#home", text: "Home" },
-        { ref: "#projects", text: "Projects" },
-        { ref: "#about", text: "About" },
-        { ref: "#skills", text: "Skills" },
-        { ref: "#contact", text: "Contact" }
+        { to: "/#home", text: "Home" },
+        { to: "/#projects", text: "Projects" },
+        { to: "/#about", text: "About" },
+        { to: "/#skills", text: "Skills" },
+        { to: "/#contact", text: "Contact" }
       ]
     };
   },
   computed: {
     activeClass() {
-      return ref => (this.currentSection.id === ref ? "active" : "");
+      return to => (`/${this.currentSection.id}` === to ? "active" : "");
     }
   },
   created() {
