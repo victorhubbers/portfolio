@@ -2,7 +2,7 @@
   <v-hover>
     <template v-slot:default="{ hover }">
       <v-card color="var(--primary-tint)">
-        <v-img :src="project.image"></v-img>
+        <v-img height="200" :src="project.image"></v-img>
 
         <v-card-title>
           <h3 id="project-title">{{ project.title }}</h3>
