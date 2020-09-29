@@ -1,6 +1,6 @@
 <template>
   <section id="contact">
-    <h2 class="section-title">Contact</h2>
+    <h2 class="section-title">{{ $t("sectionTitles.contact") }}</h2>
     <v-container fluid>
       <v-row>
         <v-col cols="12" md="8">
@@ -20,7 +20,8 @@ import ContactForm from "@/components/ContactForm";
 export default {
   name: "Contact",
   components: {
-    Lightbulb, ContactForm
+    Lightbulb,
+    ContactForm
   }
 };
 </script>

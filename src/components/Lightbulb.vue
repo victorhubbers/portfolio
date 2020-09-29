@@ -1,5 +1,5 @@
 <template>
-  <div style="text-align: center">
+  <div style="text-align: center; margin-top: 1rem">
     <svg
       :width="width"
       :height="height"
@@ -31,10 +31,7 @@
     </svg>
 
     <p>
-      Interested in working with me, or have any tips you would like to share?
-      <br />
-      <br />
-      Be sure to contact me!
+      {{ $t("contactForm.tip") }}
     </p>
   </div>
 </template>
@@ -63,11 +60,12 @@ export default {
 
 <style scoped>
 p {
-  padding: 0 4rem;
+  padding: 0 3rem;
   margin-top: 4rem;
   font-weight: 500;
   font-size: 1.8rem;
   line-height: 2.5rem;
   color: var(--primary-text-color);
+  white-space: pre-line;
 }
 </style>

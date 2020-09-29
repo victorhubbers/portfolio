@@ -2,7 +2,7 @@
   <form method="post" @submit.prevent="submitForm">
     <v-row>
       <v-col cols="12" sm="6">
-        <label>Your name</label>
+        <label>{{ $t("contactForm.labels.name") }}</label>
         <v-text-field
           v-model="form.name"
           type="text"
@@ -13,7 +13,10 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6">
-        <label>Your email <span>(optional)</span></label>
+        <label
+          >{{ $t("contactForm.labels.email") }}
+          <span>{{ $t("contactForm.labels.optional") }}</span></label
+        >
         <v-text-field
           v-model="form.email"
           type="email"
@@ -24,7 +27,7 @@
         ></v-text-field>
       </v-col>
       <v-col cols="12">
-        <label>Your message to me</label>
+        <label>{{ $t("contactForm.labels.message") }}</label>
         <v-textarea
           v-model="form.message"
           type="text"
@@ -43,14 +46,12 @@
           :dark="themeState.isItSummer"
           color="var(--accent-color)"
           depressed
-          >Submit</v-btn
+          >{{ $t("contactForm.submit.submitButton") }}</v-btn
         >
       </v-col>
       <v-col cols="12" sm="9">
         <div style="display: flex; align-items: center;">
-          <v-icon :color="submission.color" large>{{
-            submission.icon
-          }}</v-icon>
+          <v-icon :color="submission.color" large>{{ submission.icon }}</v-icon>
           <p
             :style="{
               color: submission.color,
@@ -59,7 +60,7 @@
               marginLeft: 1 + 'rem'
             }"
           >
-            {{ submission.text }}
+            {{ $t(`${submission.text}`) }}
           </p>
         </div>
       </v-col>
@@ -89,11 +90,11 @@ export default {
         return true;
       } else {
         if (!this.form.name && !this.form.message) {
-          this.wrongFields = "name and message fields.";
+          this.submission.text = "contactForm.submit.nameAndMessageError";
         } else if (!this.form.name) {
-          this.wrongFields = "name field.";
+          this.submission.text = "contactForm.submit.nameError";
         } else {
-          this.wrongFields = "message field.";
+          this.submission.text = "contactForm.submit.messageError";
         }
         return false;
       }
@@ -107,11 +108,9 @@ export default {
     },
     submitForm() {
       if (!this.validateForm()) {
-        this.submission = {
-          icon: "mdi-alert-circle",
-          color: "#FF4444",
-          text: `Please fill in the ${this.wrongFields}`
-        };
+        this.submission.icon = "mdi-alert-circle";
+        this.submission.color = "#FF4444";
+        //this.submission.text was set during validateForm()
       } else {
         fetch("/", {
           method: "POST",
@@ -125,7 +124,7 @@ export default {
             this.submission = {
               icon: "mdi-check-circle",
               color: "#00C851",
-              text: "Thanks!"
+              text: "contactForm.submit.thanks"
             };
 
             this.form = {
@@ -138,8 +137,7 @@ export default {
             this.submission = {
               icon: "mdi-alert-circle",
               color: "#FF4444",
-              text:
-                "Something went wrong, please contact me at victorhubbers@live.nl instead."
+              text: "contactForm.submit.submissionError"
             };
           });
       }
