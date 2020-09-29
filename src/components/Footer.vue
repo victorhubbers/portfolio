@@ -2,16 +2,12 @@
   <footer>
     <p class="left">@victorhubbers</p>
     <p v-if="$vuetify.breakpoint.mdAndUp" class="center">
-      {{ middleText }}
+      {{ $t(`${middleText}`) }}
     </p>
     <p class="right">
-      <span :class="[language.isEnglish ? 'bold' : '']" @click="setEnglish"
-        >EN</span
-      >
+      <span :class="[isEnglish ? 'bold' : '']" @click="setEnglish">EN</span>
       |
-      <span :class="[!language.isEnglish ? 'bold' : '']" @click="setDutch"
-        >NL</span
-      >
+      <span :class="[!isEnglish ? 'bold' : '']" @click="setDutch">NL</span>
     </p>
   </footer>
 </template>
@@ -22,22 +18,26 @@ export default {
   name: "Footer",
   data() {
     return {
-      themeState,
-      language: {
-        isEnglish: true
-      }
+      themeState
     };
   },
   computed: {
     middleText() {
       return this.themeState.isItSummer
-        ? `Want to cool down? \n Flip the switch at the top right of your screen!`
-        : `Rather feel some summer vibes? \n Flip the switch at the top right of your screen!`;
+        ? "footer.summerText"
+        : "footer.winterText";
+    },
+    isEnglish() {
+      return this.$i18n.locale === "en";
     }
   },
   methods: {
-    setEnglish() {},
-    setDutch() {}
+    setEnglish() {
+      this.$i18n.locale = "en";
+    },
+    setDutch() {
+      this.$i18n.locale = "nl";
+    }
   }
 };
 </script>
