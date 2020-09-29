@@ -2,15 +2,17 @@
   <v-hover>
     <template v-slot:default="{ hover }">
       <v-card color="var(--primary-tint)">
-        <v-img height="200" :src="project.image"></v-img>
+        <v-img height="200" :src="projectImage"></v-img>
 
         <v-card-title>
-          <h3 id="project-title">{{ project.title }}</h3>
+          <h3 id="project-title">
+            {{ $t(`portfolioContent.projects.${projectKey}.title`) }}
+          </h3>
         </v-card-title>
 
         <v-card-text>
-          <p id="project-description">
-            {{ project.description }}
+          <p id="project-one-liner">
+            {{ $t(`portfolioContent.projects.${projectKey}.oneLiner`) }}
           </p>
         </v-card-text>
 
@@ -21,7 +23,7 @@
               color="var(--accent-color)"
               depressed
               @click="viewProjectDetails"
-              >More info</v-btn
+              >{{ $t("moreInfo") }}</v-btn
             >
           </v-overlay>
         </v-fade-transition>
@@ -35,15 +37,18 @@ import { themeState } from "@/state-management/styling";
 export default {
   name: "ProjectCard",
   props: {
-    project: {
-      type: Object,
-      //   required: true,
+    projectKey: {
+      type: String,
+      required: true,
       default() {
-        return {
-          image: "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg",
-          title: "Project name",
-          description: "Creating a quiz application for in class or in pubs!"
-        };
+        return "Not Found";
+      }
+    },
+    projectImage: {
+      type: String,
+      required: true,
+      default() {
+        return "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg";
       }
     }
   },
@@ -54,7 +59,7 @@ export default {
   },
   methods: {
     viewProjectDetails() {
-      this.$router.push("/projects/temp");
+      this.$router.push(`/projects/${this.projectKey}`);
     }
   }
 };
@@ -67,7 +72,7 @@ export default {
   color: var(--primary-text-color);
 }
 
-#project-description {
+#project-one-liner {
   font-weight: 300;
   font-size: 1.6rem;
   line-height: 2.2rem;

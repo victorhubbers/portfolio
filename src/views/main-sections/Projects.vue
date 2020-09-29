@@ -1,11 +1,17 @@
 <template>
   <section id="projects">
-    <h2 class="section-title">Projects</h2>
-
+    <h2 class="section-title">{{ $t("sectionTitles.projects") }}</h2>
     <v-container fluid>
       <v-row>
-        <v-col v-for="n in 10" :key="n" cols="12" sm="6" md="4" xl="3">
-          <ProjectCard />
+        <v-col
+          v-for="(project, projectKey) in projects"
+          :key="projectKey"
+          cols="12"
+          sm="6"
+          md="4"
+          xl="3"
+        >
+          <ProjectCard :project-key="projectKey" :project-image="project.image" />
         </v-col>
       </v-row>
     </v-container>
@@ -14,10 +20,16 @@
 
 <script>
 import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/portfolio-content";
 
 export default {
   name: "Projects",
-  components: { ProjectCard }
+  components: { ProjectCard },
+  data() {
+    return {
+      projects
+    };
+  }
 };
 </script>
 
