@@ -1,24 +1,10 @@
 <template>
   <section id="about">
-    <h2 class="section-title secondary">About</h2>
+    <h2 class="section-title secondary">{{ $t("sectionTitles.about") }}</h2>
     <v-container fluid>
       <v-row>
         <v-col cols="12" md="7" lg="8">
-          <p>
-            On the other hand, we denounce with righteous indignation and
-            dislike who are so beguiled and demoralized by the charms of
-            pleasure of the moment, so blinded by desire, that they cannot
-            foresee the pain and trouble that are bound to ensue; and equal
-            blame belongs to those who fail in their duty through weakness of
-            will, which is the same as saying through shrinking from toil
-            <br />
-            <br />
-
-            and pain. These cases are perfectly simple and easy to distinguish.
-            In a free hour, when our power of choice is untrammelled and when
-            nothing prevents our being able to do what we like best, every
-            pleasure is to be welcomed and every pain avoided.
-          </p>
+          <p>{{ $t("portfolioContent.aboutText") }}</p>
         </v-col>
         <v-spacer></v-spacer>
         <v-col v-if="$vuetify.breakpoint.smAndDown" cols="2" sm="3"></v-col>
@@ -60,7 +46,8 @@ p {
   font-weight: 400;
   font-size: 2rem;
   line-height: 2.6rem;
-
   color: var(--secondary-text-color);
+
+  white-space: pre-wrap;
 }
 </style>
