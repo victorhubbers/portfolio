@@ -1,18 +1,10 @@
 <template>
   <section id="skills">
-    <h2 class="section-title secondary">Skills</h2>
+    <h2 class="section-title secondary">{{ $t("sectionTitles.skills") }}</h2>
     <v-container fluid>
       <v-row style="align-items: center">
         <v-col cols="12" lg="4">
-          <p>
-            On the other hand, we denounce with righteous indignation and
-            dislike who are so beguiled and demoralized by the charms of
-            pleasure of the moment, so blinded by desire, that they cannot
-            <br />
-            <br />
-            foresee the pain and trouble that are bound to ensue; and equal of
-            will, which is the same as saying thl
-          </p>
+          <p>{{ $t("portfolioContent.skillsText") }}</p>
         </v-col>
         <v-col v-if="!onPhone" cols="12" lg="8" style="height: fit-content">
           <v-row no-gutters style="justify-content: space-between">
@@ -94,7 +86,8 @@ p {
   font-weight: 400;
   font-size: 2rem;
   line-height: 2.6rem;
-
   color: var(--secondary-text-color);
+
+  white-space: pre-wrap;
 }
 </style>
