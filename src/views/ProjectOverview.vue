@@ -32,14 +32,14 @@
                 color="var(--accent-color)"
                 depressed
               >
-                Visit
-                <v-icon :color="iconColor" right small>mdi-launch</v-icon>
+                {{ $t("projectOverview.visitButton") }}
+                <v-icon :color="launchIconColor" right small>mdi-launch</v-icon>
               </v-btn>
             </v-col>
             <v-col cols="2" md="1"><!-- spacer --></v-col>
             <v-col cols="5" md="3" lg="2">
-              <v-btn outlined block color="var(--accent-color)" depressed
-                >View code</v-btn
+              <v-btn outlined block color="var(--accent-color)" depressed>
+                {{ $t("projectOverview.viewCodeButton") }}</v-btn
               >
             </v-col>
           </v-row>
@@ -54,37 +54,28 @@
 
 <script>
 import { themeState } from "@/state-management/styling";
+import { projects } from "@/portfolio-content";
 import ChipRow from "@/components/ChipRow";
+
 export default {
   name: "ProjectOverview",
   components: { ChipRow },
   data() {
     return {
       themeState,
-      project: {
-        title: "Quizzion 2.0",
-        highlights: [
-          "Multicultural team",
-          "External API",
-          "New framework",
-          "Complete process",
-          "Daily stand-ups"
-        ],
-        demo: {
-          previewType: "video",
-          previewAsset: "",
-          codeAvailable: false,
-          liveLink: ""
-        },
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        technologies: ["Vue.js", "Vuex", "AWS", "Quasar", "Node.js", "Firebase"]
-      }
+      projectKey: this.$route.params.projectKey
     };
   },
   computed: {
-    iconColor() {
+    launchIconColor() {
       return themeState.isItSummer ? "white" : "var(--secondary-text-color)";
+    },
+    project() {
+      return {
+        //combines translations and other content into a single project object.
+        ...projects[this.projectKey],
+        ...this.$t(`portfolioContent.projects.${this.projectKey}`)
+      };
     }
   }
 };

@@ -11,7 +11,7 @@ const routes = [
     component: Main,
   },
   {
-    path: "/projects/:projectName",
+    path: "/projects/:projectKey",
     name: "Project Overview",
     component: () =>
       import(

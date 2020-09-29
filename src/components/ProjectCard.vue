@@ -23,7 +23,7 @@
               color="var(--accent-color)"
               depressed
               @click="viewProjectDetails"
-              >{{ $t("moreInfo") }}</v-btn
+              >{{ $t("projectOverview.moreInfoButton") }}</v-btn
             >
           </v-overlay>
         </v-fade-transition>
