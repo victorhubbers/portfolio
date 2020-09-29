@@ -59,19 +59,21 @@ export default {
     return {
       currentSection,
       sticky: false,
-      showMenu: false,
-      links: [
-        { to: "/#home", text: "Home" },
-        { to: "/#projects", text: "Projects" },
-        { to: "/#about", text: "About" },
-        { to: "/#skills", text: "Skills" },
-        { to: "/#contact", text: "Contact" }
-      ]
+      showMenu: false
     };
   },
   computed: {
     activeClass() {
       return to => (`/${this.currentSection.id}` === to ? "active" : "");
+    },
+    links() {
+      return [
+        { to: "/#home", text: this.$t("sectionTitles.home") },
+        { to: "/#projects", text: this.$t("sectionTitles.projects") },
+        { to: "/#about", text: this.$t("sectionTitles.about") },
+        { to: "/#skills", text: this.$t("sectionTitles.skills") },
+        { to: "/#contact", text: this.$t("sectionTitles.contact") }
+      ];
     }
   },
   created() {
