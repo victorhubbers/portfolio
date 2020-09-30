@@ -5,27 +5,24 @@
     <v-container fluid>
       <v-row>
         <!-- left, top/bottom -->
-        <v-col cols="12" md="5">
-          <ul>
-            <li v-for="(highlight, idx) in project.highlights" :key="idx">
-              {{ highlight }}
-            </li>
-          </ul>
+        <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="12" md="6">
+          <p class="text">{{ project.description }}</p>
 
-          <p v-if="$vuetify.breakpoint.mdAndUp" style="margin-top: 5rem">
-            {{ project.description }}
-          </p>
+          <GroupContributionList
+            v-if="project.type === 'group'"
+            :contributions="project.contributions"
+          />
         </v-col>
 
         <!-- right/middle -->
         <v-spacer></v-spacer>
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="5">
           <div id="demo"></div>
 
           <ChipRow :chips="project.technologies" />
 
           <v-row id="button-row" no-gutters>
-            <v-col cols="5" md="3" lg="2">
+            <v-col cols="12" sm="5">
               <v-btn
                 :dark="themeState.isItSummer"
                 block
@@ -36,8 +33,8 @@
                 <v-icon :color="launchIconColor" right small>mdi-launch</v-icon>
               </v-btn>
             </v-col>
-            <v-col cols="2" md="1"><!-- spacer --></v-col>
-            <v-col cols="5" md="3" lg="2">
+            <v-col cols="0" sm="1" lg="2"></v-col>
+            <v-col cols="12" sm="6" lg="5">
               <v-btn outlined block color="var(--accent-color)" depressed>
                 {{ $t("projectOverview.viewCodeButton") }}</v-btn
               >
@@ -45,7 +42,12 @@
           </v-row>
         </v-col>
         <v-col v-if="!$vuetify.breakpoint.mdAndUp">
-          <p>{{ project.description }}</p>
+          <p class="text">{{ project.description }}</p>
+
+          <GroupContributionList
+            v-if="project.type === 'group'"
+            :contributions="project.contributions"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -56,10 +58,11 @@
 import { themeState } from "@/state-management/styling";
 import { projects } from "@/portfolio-content";
 import ChipRow from "@/components/ChipRow";
+import GroupContributionList from "@/components/GroupContributionList";
 
 export default {
   name: "ProjectOverview",
-  components: { ChipRow },
+  components: { ChipRow, GroupContributionList },
   data() {
     return {
       themeState,
@@ -94,22 +97,15 @@ export default {
   margin-top: 5rem;
 }
 
-ul {
-  list-style-type: none;
-  color: var(--primary-text-color);
-  line-height: 2.6rem;
-  font-size: 2rem;
+.text {
   font-weight: 400;
-}
-ul > li:before {
-  content: "-";
-}
-
-p {
-  font-weight: normal;
   font-size: 2rem;
   line-height: 2.4rem;
   color: var(--primary-text-color);
+}
+
+p {
+  white-space: pre-wrap;
 }
 
 #demo {
@@ -118,8 +114,8 @@ p {
   background: grey;
 }
 
-#button-row {
-  margin: 2rem 0;
+#button-row div {
+  margin: 0.5rem 0;
 }
 
 .v-btn {

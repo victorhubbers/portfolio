@@ -3,10 +3,10 @@
     <h2 class="section-title secondary">{{ $t("sectionTitles.skills") }}</h2>
     <v-container fluid>
       <v-row style="align-items: center">
-        <v-col cols="12" lg="4">
+        <v-col cols="12" xl="5">
           <p>{{ $t("portfolioContent.skillsText") }}</p>
         </v-col>
-        <v-col v-if="!onPhone" cols="12" lg="8" style="height: fit-content">
+        <v-col v-if="!onPhone" cols="12" xl="7" style="height: fit-content">
           <v-row no-gutters style="justify-content: space-between">
             <VueIcon class="icon" :height="iconHeight" />
             <NodeIcon class="icon" :height="iconHeight" />
@@ -54,11 +54,11 @@ export default {
         case "sm":
           return 50;
         case "md":
-          return 65;
-        case "lg":
           return 55;
+        case "lg":
+          return 60;
         case "xl":
-          return 70;
+          return 60;
         default:
           return 0;
       }
@@ -73,7 +73,7 @@ export default {
 <style scoped>
 #skills {
   width: 100%;
-  padding: 5rem 9vw 7rem;
+  padding: 3rem 9vw 7rem;
   background: var(--secondary-tint);
 }
 
