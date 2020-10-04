@@ -11,7 +11,7 @@
           md="4"
           xl="3"
         >
-          <ProjectCard :project-key="projectKey" :project-image="project.image" />
+          <ProjectCard :project-key="projectKey" :project-image="project.coverImage" />
         </v-col>
       </v-row>
     </v-container>
