@@ -25,10 +25,10 @@ const projects = {
   },
   cards: {
     type: "solo",
-    coverImage: "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg",
+    coverImage: require(`../assets/cover-images/cards.webp`),
     demo: {
       type: "video",
-      asset: require(`../assets/PlayingCards.webm`),
+      asset: require(`../assets/demos/cards.webm`),
       codeLink: "https://github.com/victorhubbers/Playing-Cards",
       liveLink: "https://youthful-heyrovsky-47674a.netlify.app",
     },

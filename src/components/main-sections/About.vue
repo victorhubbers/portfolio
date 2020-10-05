@@ -23,8 +23,8 @@ export default {
   computed: {
     imageSrc() {
       return themeState.isItSummer
-        ? require("../../assets/s-picture.png")
-        : require("../../assets/w-picture.png");
+        ? require("../../assets/s-picture.webp")
+        : require("../../assets/w-picture.webp");
     }
   }
 };
