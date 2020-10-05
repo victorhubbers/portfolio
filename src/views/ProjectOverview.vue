@@ -38,12 +38,14 @@ import ChipRow from "@/components/project-overview/ChipRow";
 import ProjectDemo from "@/components/project-overview/ProjectDemo";
 import ButtonRow from "@/components/project-overview/ButtonRow";
 import ProjectDescription from "@/components/project-overview/ProjectDescription";
+import { currentSection } from "@/state-management/observer";
 
 export default {
   name: "ProjectOverview",
   components: { ChipRow, ProjectDescription, ProjectDemo, ButtonRow },
   data() {
     return {
+      currentSection,
       projectKey: this.$route.params.projectKey
     };
   },
@@ -55,6 +57,9 @@ export default {
         ...this.$t(`portfolioContent.projects.${this.projectKey}`)
       };
     }
+  },
+  mounted() {
+    this.currentSection.id = "#projects";
   }
 };
 </script>

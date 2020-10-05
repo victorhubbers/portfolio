@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Main from "../views/Main.vue";
+import Main from "@/views/Main.vue";
+import { projects } from "@/portfolio-content";
 
 Vue.use(VueRouter);
 
@@ -13,10 +14,25 @@ const routes = [
   {
     path: "/projects/:projectKey",
     name: "Project Overview",
-    component: () =>
-      import(
-        /* webpackChunkName: "project-overview" */ "../views/ProjectOverview.vue"
-      ),
+    beforeEnter: (to, from, next) => {
+      const projectExists = Object.prototype.hasOwnProperty.call(
+        projects,
+        to.params.projectKey
+      );
+
+      if (projectExists) next();
+      else next("/404");
+    },
+    component: () => import("@/views/ProjectOverview.vue"),
+  },
+  {
+    path: "*",
+    redirect: "/404",
+  },
+  {
+    path: "/404",
+    name: "Not Found",
+    component: () => import("@/views/Error404.vue"),
   },
 ];
 
