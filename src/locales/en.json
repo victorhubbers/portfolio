@@ -68,10 +68,11 @@
       },
       "javalite": {
         "title": "JavaLite",
-        "oneLiner": "Creating my own programming language in Java!",
-        "description": "The JavaLite project was part of a course called 'Compilers and Operating Systems'. I had to design and program my own programming language and accompanying compiler, all based on Jasmin bytecode. Me not being the most creative person out there, it ended up being a simplified, stripped down version of Java. I called it JavaLite.\n\nThe project really wasn't about making the most perfect and original programming language, we only had about 6 weeks to work on it, so that was never even possible. The true goal of this project was to get an understanding of how things work, and also why some things don't work. There were 3 main components of this project:\n1) The grammar of the language.\n2) A CodeGenerator that generates bytecode based on input.\n3) A TypeChecker that informs the CodeGenerator about types, variables and scopes.\n\nI really enjoyed the complexity of this project, it was tough, but it felt awesome when things finally started working and it really felt like making something of your own from scratch.",
-        "contributions": []
+        "oneLiner": "Creating my own programming language and compiler in Java!",
+        "description": "The JavaLite project was part of a course called 'Compilers and Operating Systems'. I had to design and program my own programming language and accompanying compiler, all based on Jasmin bytecode. Me not being the most creative person out there, it ended up being a simplified, stripped down version of Java. I called it JavaLite.\n\nThe project really wasn't about making the most perfect and original programming language, we only had about 6 weeks to work on it, so that was never even possible. The true goal of this project was to get an understanding of how things work, and also why some things don't work. There were 3 main components of this project:\n1) The grammar of the language.\n2) A CodeGenerator that generates bytecode based on input.\n3) A Checker that informs the CodeGenerator about types, variables, methods and scopes.\n\nI really enjoyed the complexity of this project, it was tough, but it felt awesome when things finally started working and it really felt like making something of your own from scratch."
       }
     }
-  }
+  },
+  "404Message": "Oops!\nLooks like you've followed a broken link or entered a URL that doesn't exist on my site.",
+  "404Action": "Go Home"
 }
