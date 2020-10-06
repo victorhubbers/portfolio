@@ -22,7 +22,10 @@
               :light="!themeState.isItSummer"
               color="var(--accent-color)"
               depressed
-              @click="viewProjectDetails"
+              :to="{
+                name: `Project Overview`,
+                params: { projectKey }
+              }"
               >{{ $t("projectOverview.moreInfoButton") }}</v-btn
             >
           </v-overlay>
@@ -56,11 +59,6 @@ export default {
     return {
       themeState
     };
-  },
-  methods: {
-    viewProjectDetails() {
-      this.$router.push(`/projects/${this.projectKey}`);
-    }
   }
 };
 </script>

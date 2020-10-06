@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import i18n from "@/plugins/i18n";
 import Main from "@/views/Main.vue";
+import LangWrap from "@/components/LangWrap.vue";
 import { projects } from "@/portfolio-content";
 
 Vue.use(VueRouter);
@@ -8,31 +10,53 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Main",
-    component: Main,
-  },
-  {
-    path: "/projects/:projectKey",
-    name: "Project Overview",
-    beforeEnter: (to, from, next) => {
-      const projectExists = Object.prototype.hasOwnProperty.call(
-        projects,
-        to.params.projectKey
-      );
-
-      if (projectExists) next();
-      else next("/404");
+    name: "root",
+    beforeEnter(to, from, next) {
+      next(i18n.locale);
     },
-    component: () => import("@/views/ProjectOverview.vue"),
   },
   {
-    path: "*",
-    redirect: "/404",
-  },
-  {
-    path: "/404",
-    name: "Not Found",
-    component: () => import("@/views/Error404.vue"),
+    path: "/:lang",
+    component: LangWrap,
+    beforeEnter(to, from, next) {
+      let lang = to.params.lang;
+      if (lang === "nl" || lang === "en") {
+        if (i18n.locale != lang) i18n.locale = lang;
+        return next();
+      } else {
+        return next(`/${i18n.locale}`);
+      }
+    },
+    children: [
+      {
+        path: "",
+        name: "Main",
+        component: Main,
+      },
+      {
+        path: "projects/:projectKey",
+        name: "Project Overview",
+        beforeEnter: (to, from, next) => {
+          const projectExists = Object.prototype.hasOwnProperty.call(
+            projects,
+            to.params.projectKey
+          );
+
+          if (projectExists) next();
+          else next({ path: `${i18n.locale}/404` });
+        },
+        component: () => import("@/views/ProjectOverview.vue"),
+      },
+      {
+        path: "*",
+        redirect: { name: "Not Found" },
+      },
+      {
+        path: "404",
+        name: "Not Found",
+        component: () => import("@/views/Error404.vue"),
+      },
+    ],
   },
 ];
 

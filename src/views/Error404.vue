@@ -25,7 +25,7 @@
         :dark="themeState.isItSummer"
         color="var(--accent-color)"
         depressed
-        to="/"
+        :to="{ name: `Main` }"
         >{{ $t("404Action") }}</v-btn
       >
     </div>

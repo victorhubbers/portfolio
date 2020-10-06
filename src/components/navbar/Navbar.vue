@@ -1,14 +1,18 @@
 <template>
   <div id="navbar" v-click-outside="closeMenu">
     <header :class="[sticky || showMenu ? 'sticky' : '']">
-      <router-link to="/#home" class="name">Victor Hubbers</router-link>
+      <router-link :to="{ name: `Main` }" class="name"
+        >Victor Hubbers</router-link
+      >
 
       <nav v-if="$vuetify.breakpoint.lgAndUp" id="nav-content-extended">
         <ul>
-          <li v-for="link in links" :key="link.to">
-            <router-link :to="link.to" :class="activeClass(link.to)">{{
-              link.text
-            }}</router-link>
+          <li v-for="section in sections" :key="section.id">
+            <router-link
+              :to="{ name: `Main`, hash: section.id }"
+              :class="activeClass(section.id)"
+              >{{ section.title }}</router-link
+            >
           </li>
         </ul>
         <ThemeToggle style="margin-left: 4rem;" />
@@ -27,12 +31,14 @@
         <nav>
           <ul>
             <li
-              v-for="link in links"
-              :key="link.to"
-              :class="activeClass(link.to)"
+              v-for="section in sections"
+              :key="section.id"
+              :class="activeClass(section.id)"
               @click="showMenu = false"
             >
-              <router-link :to="link.to">{{ link.text }}</router-link>
+              <router-link :to="{ name: `Main`, hash: section.id }">{{
+                section.title
+              }}</router-link>
             </li>
           </ul>
         </nav>
@@ -64,15 +70,15 @@ export default {
   },
   computed: {
     activeClass() {
-      return to => (`/${this.currentSection.id}` === to ? "active" : "");
+      return id => (this.currentSection.id === id ? "active" : "");
     },
-    links() {
+    sections() {
       return [
-        { to: "/#home", text: this.$t("sectionTitles.home") },
-        { to: "/#projects", text: this.$t("sectionTitles.projects") },
-        { to: "/#about", text: this.$t("sectionTitles.about") },
-        { to: "/#skills", text: this.$t("sectionTitles.skills") },
-        { to: "/#contact", text: this.$t("sectionTitles.contact") }
+        { id: "#home", title: this.$t("sectionTitles.home") },
+        { id: "#projects", title: this.$t("sectionTitles.projects") },
+        { id: "#about", title: this.$t("sectionTitles.about") },
+        { id: "#skills", title: this.$t("sectionTitles.skills") },
+        { id: "#contact", title: this.$t("sectionTitles.contact") }
       ];
     }
   },
