@@ -36,7 +36,7 @@ export default {
 <style scoped>
 #projects {
   width: 100%;
-  padding: 7rem 9vw;
+  padding: 7rem var(--side-padding);
 }
 
 /* vuetify container class */

@@ -46,7 +46,7 @@ export default {
 footer {
   height: 100px;
   width: 100%;
-  padding: 0 9vw;
+  padding: 0 var(--side-padding);
   background-color: var(--secondary-color);
   display: flex;
   justify-content: space-between;

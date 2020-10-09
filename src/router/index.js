@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import i18n from "@/plugins/i18n";
 import Main from "@/views/Main.vue";
-import LangWrap from "@/components/LangWrap.vue";
+import ViewWrapper from "@/ViewWrapper.vue";
 import { projects } from "@/portfolio-content";
 
 Vue.use(VueRouter);
@@ -17,7 +17,7 @@ const routes = [
   },
   {
     path: "/:lang",
-    component: LangWrap,
+    component: ViewWrapper,
     beforeEnter(to, from, next) {
       let lang = to.params.lang;
       if (lang === "nl" || lang === "en") {

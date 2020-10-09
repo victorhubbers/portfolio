@@ -43,7 +43,7 @@ export default {
   min-height: 100vh;
   left: 0px;
   top: 0px;
-  padding: 30vh 9vw 5vh 9vw;
+  padding: 30vh var(--side-padding) 5vh;
 }
 
 p {

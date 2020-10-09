@@ -13,18 +13,51 @@ import { setTheme } from "@/state-management/styling";
 
 export default {
   name: "App",
-
   components: {
     Navbar,
     Footer
   },
-
-  data: () => ({
-    //
-  }),
-
+  computed: {
+    locale() {
+      return this.$i18n.locale;
+    },
+    breakpoint() {
+      return this.$vuetify.breakpoint.name;
+    },
+    padding() {
+      switch (this.breakpoint) {
+        case "xs":
+          return "6vw";
+        case "sm":
+          return "7vw";
+        case "md":
+          return "8vw";
+        case "lg":
+          return "9vw";
+        case "xl":
+          return "9vw";
+        default:
+          return "9vw";
+      }
+    }
+  },
+  watch: {
+    locale() {
+      this.$router.replace({ params: { lang: this.locale } }).catch(() => {});
+    },
+    breakpoint() {
+      this.setPadding();
+    }
+  },
   created() {
     setTheme();
+    this.setPadding();
+  },
+  methods: {
+    setPadding() {
+      let root = document.documentElement;
+      root.style.setProperty("--side-padding", this.padding);
+    }
   }
 };
 </script>

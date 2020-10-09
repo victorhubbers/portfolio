@@ -68,7 +68,7 @@ export default {
 #project-details {
   width: 100%;
   min-height: calc(100vh - 100px);
-  padding: 12rem 9vw 7rem;
+  padding: 12rem var(--side-padding) 7rem;
 }
 
 /* vuetify container class */

@@ -73,7 +73,7 @@ export default {
 <style scoped>
 #skills {
   width: 100%;
-  padding: 3rem 9vw 7rem;
+  padding: 3rem var(--side-padding) 7rem;
   background: var(--secondary-tint);
 }
 

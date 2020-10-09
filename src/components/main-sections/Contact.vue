@@ -29,7 +29,7 @@ export default {
 <style scoped>
 #contact {
   width: 100%;
-  padding: 7rem 9vw;
+  padding: 7rem var(--side-padding);
 }
 /* vuetify container class */
 .container {

@@ -33,7 +33,7 @@ export default {
 <style scoped>
 #about {
   width: 100%;
-  padding: 7rem 9vw 5rem;
+  padding: 7rem var(--side-padding) 5rem;
 }
 
 /* vuetify container class */

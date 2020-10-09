@@ -116,7 +116,7 @@ header {
   justify-content: space-between;
   align-items: center;
   transition: 0.4s;
-  padding: 2.5rem 9vw;
+  padding: 2.5rem var(--side-padding);
   z-index: 10;
 }
 
@@ -125,7 +125,7 @@ header {
 }
 
 header.sticky {
-  padding: 2rem 9vw;
+  padding: 2rem var(--side-padding);
   background: var(--primary-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -171,7 +171,7 @@ header.sticky {
 }
 
 #hamburger-menu.sticky {
-  padding: 0.1rem 9vw;
+  padding: 0.1rem var(--side-padding);
   background: var(--primary-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
