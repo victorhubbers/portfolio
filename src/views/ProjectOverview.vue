@@ -42,6 +42,9 @@ import { currentSection } from "@/state-management/observer";
 
 export default {
   name: "ProjectOverview",
+  title() {
+    return `Victor Hubbers - ${this.project.title}`;
+  },
   components: { ChipRow, ProjectDescription, ProjectDemo, ButtonRow },
   data() {
     return {

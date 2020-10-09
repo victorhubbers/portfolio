@@ -56,6 +56,7 @@ import { threshold, onIntersect } from "@/state-management/observer";
 
 export default {
   name: "Main",
+  title: "Victor Hubbers",
   components: { ...mainSections },
   data() {
     return {

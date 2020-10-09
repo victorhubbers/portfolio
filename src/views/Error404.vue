@@ -38,6 +38,7 @@ import { themeState } from "@/state-management/styling";
 
 export default {
   name: "Error404",
+  title: "Victor Hubbers - 404 Not Found",
   data() {
     return {
       currentSection,
