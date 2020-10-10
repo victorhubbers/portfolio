@@ -1,14 +1,18 @@
 <template>
   <div id="navbar" v-click-outside="closeMenu">
     <header :class="[sticky || showMenu ? 'sticky' : '']">
-      <a href="#home" class="name">Victor Hubbers</a>
+      <router-link :to="{ name: `Main` }" class="name"
+        >Victor Hubbers</router-link
+      >
 
       <nav v-if="$vuetify.breakpoint.lgAndUp" id="nav-content-extended">
         <ul>
-          <li v-for="link in links" :key="link.ref">
-            <a :href="link.ref" :class="activeClass(link.ref)">{{
-              link.text
-            }}</a>
+          <li v-for="section in sections" :key="section.id">
+            <router-link
+              :to="{ name: `Main`, hash: section.id }"
+              :class="activeClass(section.id)"
+              >{{ section.title }}</router-link
+            >
           </li>
         </ul>
         <ThemeToggle style="margin-left: 4rem;" />
@@ -27,12 +31,14 @@
         <nav>
           <ul>
             <li
-              v-for="link in links"
-              :key="link.ref"
-              :class="activeClass(link.ref)"
+              v-for="section in sections"
+              :key="section.id"
+              :class="activeClass(section.id)"
               @click="showMenu = false"
             >
-              <a :href="link.ref">{{ link.text }}</a>
+              <router-link :to="{ name: `Main`, hash: section.id }">{{
+                section.title
+              }}</router-link>
             </li>
           </ul>
         </nav>
@@ -47,7 +53,7 @@
 <script>
 import ThemeToggle from "@/components/navbar/ThemeToggle.vue";
 import HamburgerIcon from "@/components/navbar/HamburgerIcon.vue";
-import { currentSection } from "@/utils/observer.js";
+import { currentSection } from "@/state-management/observer.js";
 
 export default {
   name: "Navbar",
@@ -59,19 +65,21 @@ export default {
     return {
       currentSection,
       sticky: false,
-      showMenu: false,
-      links: [
-        { ref: "#home", text: "Home" },
-        { ref: "#projects", text: "Projects" },
-        { ref: "#about", text: "About" },
-        { ref: "#skills", text: "Skills" },
-        { ref: "#contact", text: "Contact" }
-      ]
+      showMenu: false
     };
   },
   computed: {
     activeClass() {
-      return ref => (this.currentSection.id === ref ? "active" : "");
+      return id => (this.currentSection.id === id ? "active" : "");
+    },
+    sections() {
+      return [
+        { id: "#home", title: this.$t("sectionTitles.home") },
+        { id: "#projects", title: this.$t("sectionTitles.projects") },
+        { id: "#about", title: this.$t("sectionTitles.about") },
+        { id: "#skills", title: this.$t("sectionTitles.skills") },
+        { id: "#contact", title: this.$t("sectionTitles.contact") }
+      ];
     }
   },
   created() {
@@ -108,7 +116,7 @@ header {
   justify-content: space-between;
   align-items: center;
   transition: 0.4s;
-  padding: 2.5rem 9vw;
+  padding: 2.5rem var(--side-padding);
   z-index: 10;
 }
 
@@ -117,7 +125,7 @@ header {
 }
 
 header.sticky {
-  padding: 2rem 9vw;
+  padding: 2rem var(--side-padding);
   background: var(--primary-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -163,7 +171,7 @@ header.sticky {
 }
 
 #hamburger-menu.sticky {
-  padding: 0.1rem 9vw;
+  padding: 0.1rem var(--side-padding);
   background: var(--primary-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }

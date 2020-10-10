@@ -2,11 +2,9 @@
   <section id="home">
     <div id="background-img" />
     <div id="headline">
-      <div style="width: fit-content">
-        <p class="left">Hey, I'm Victor and I'm a</p>
-        <h1 class="center">Software Developer</h1>
-        <p class="right">welcome to my portfolio.</p>
-      </div>
+      <p class="left">{{ $t(`greeting.left`) }}</p>
+      <h1 class="center">{{ $t(`greeting.center`) }}</h1>
+      <p class="right">{{ $t(`greeting.right`) }}</p>
     </div>
     <ScrollArrow />
   </section>
@@ -40,11 +38,12 @@ export default {
 
 #headline {
   position: absolute;
-  width: 100%;
+  max-width: 100%;
+  width: fit-content;
   min-height: 100vh;
   left: 0px;
   top: 0px;
-  padding: 30vh 9vw 5vh 9vw;
+  padding: 30vh var(--side-padding) 5vh;
 }
 
 p {

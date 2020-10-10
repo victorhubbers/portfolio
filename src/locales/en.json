@@ -1,0 +1,78 @@
+{
+  "sectionTitles": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About me",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "greeting": {
+    "left": "Hey, I'm Victor and I'm a",
+    "right": "welcome to my portfolio.",
+    "center": "Software Developer"
+  },
+  "contactForm": {
+    "labels": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your message to me",
+      "optional": "(optional)"
+    },
+    "submit": {
+      "submitButton": "Submit",
+      "nameError": "Please fill in the name field.",
+      "messageError": "Please fill in the message field.",
+      "nameAndMessageError": "Please fill in the name and message fields.",
+      "thanks": "Thanks!",
+      "submissionError": "Something went wrong, please contact me at victorhubbers@live.nl instead."
+    },
+    "tip": "Interested in working with me, or have any tips you would like to share?\n \nBe sure to contact me!"
+  },
+  "footer": {
+    "summerText": "Want to cool down?\nFlip the switch at the top right of your screen!",
+    "winterText": "Rather feel some summer vibes?\nFlip the switch at the top right of your screen!"
+  },
+  "projectOverview": {
+    "moreInfoButton": "More info",
+    "visitButton": "Visit",
+    "viewCodeButton": "View code",
+    "myContributions": "My contributions"
+  },
+  "portfolioContent": {
+    "aboutText": "I am Victor Hubbers, a 20 year old Software Engineering student at Saxion Deventer (the Netherlands). I am naturally curious, I love learning new things and I would consider myself a quick study. I believe those characteristics suit the software engineering field perfectly, because they allow me to try new things, adapt very quickly, and keep an open mind.\n\nDuring my studies I've learned to communicate and work with people from very different backgrounds compared to my own. I specifically chose to go to Saxion Deventer because they offered an international Software Engineering program. This means that all my lessons are taught in English, and about 60% of my classmates are from abroad!\nAt the moment I'm working with students from the nursing and creative business programmes, in an multidisciplinary research group.",
+    "skillsText": "In the past few years I have learned many essential skills in the area of software development, such as working with scrum and git. I started off learning Java, mostly object oriented, but with a few sidesteps to other fields such as Android development and the web (Spring + Thymeleaf). After getting down the basics, I moved on to more complex things, such as concurrency, complexity and algorithms. Besides Java, I also learned both back- and frontend web development with Javascript and the common frameworks. \n\nThis is a very simple overview on some of my most valuable skills, for more details about the technologies that I use I recommend that you to have a look at some of my projects!",
+    "projects": {
+      "quizzion": {
+        "title": "Quizzion 2.0",
+        "oneLiner": "Creating a quiz application for in class or in pubs!",
+        "description": "Quizzion 2.0 was the final project in the second year of my studies (May-July 2020). The assignment was given by a local company, and the goal was to create a quiz application on top of their existing API that was built for storing surveys. \nI was placed in a group of 6 students, that counted a total of 4 different nationalities. We had no other classes during this project, so we got to work on it fulltime for 8 weeks, with an average of 5 meetings per week. We did everything ourselves, with almost no input from Saxion at all, and that was a great experience.\n\nAt the final demo, me and my group were crowned the winners out of the 3 groups participating in this project, as the client found our solution to be the best.",
+        "contributions": [
+          "Making the page where users could answer quiz questions.",
+          "Most of the code and structure in the Vuex store.",
+          "Connecting our back- and frontend through Vuex actions.",
+          "Improving visual hierarchy on pages.",
+          "Hosting frontend on AWS S3 bucket.",
+          "Hosting live socket server and backend on an AWS EC2 instance.",
+          "Quality control and helping other people fix bugs."
+        ]
+      },
+      "portfolio": {
+        "title": "My Portfolio",
+        "oneLiner": "Learning about design and how to present myself online!",
+        "description": "Having a portfolio website to show off your projects seems like something everyone in my position should have. So I decided it was time I make myself one!\nI had prior experience with web development, but it was almost always in groups, and in groups you don't get to do the whole thing by yourself.  So, I wanted to challenge myself and do everything that I'd never done before. The biggest example of that, is the design part. I had never made mock-ups or designs for group projects, because I believe it isn't one of my strongest skills. Of course, I still wanted my portfolio to look good, so I researched a bit and learned the fundamentals of web design: Visual hierarchy, Spacing, Alignment, Scale and Contrast. Then, I downloaded Figma and started designing my pages.\n\nOnce I finished the design, I chose to build it using the Vue.js framework. I picked Vue because I like it, and because I did not want to spend time learning something new, but instead I wanted to get this project done relatively quickly so that I could use it in my search for an internship (I'm still looking for one!)."
+      },
+      "cards": {
+        "title": "Playing Cards",
+        "oneLiner": "Coding a card game to play with friends during lockdown!",
+        "description": "In the months prior to the COVID-19 lockdown in March 2020, my study association became much more lively. It became a regular thing to meet up at the end of the week to have some drinks before heading home and enjoying our weekends.\n\nWhen universities closed halfway through March, these get-togethers also stopped. Naturally, I started to get bored, and that's how I got the idea to make our go-to card game as a website so it could be used during virtual get-togethers.\n\nI knew that an upcoming project (Quizzion) would require me to use Vuex, which is a state manager similar to Redux. So, I decided to get a head start on the learning curve, and utilise Vuex in this small side project. Doing this and knowing the basics of Vuex was a huge help during the Quizzion project."
+      },
+      "javalite": {
+        "title": "JavaLite",
+        "oneLiner": "Creating my own programming language and compiler in Java!",
+        "description": "The JavaLite project was part of a course called 'Compilers and Operating Systems'. I had to design and program my own programming language and accompanying compiler, all based on Jasmin bytecode. Me not being the most creative person out there, it ended up being a simplified, stripped down version of Java. I called it JavaLite.\n\nThe project really wasn't about making the most perfect and original programming language, we only had about 6 weeks to work on it, so that was never even possible. The true goal of this project was to get an understanding of how things work, and also why some things don't work. There were 3 main components of this project:\n1) The grammar of the language.\n2) A CodeGenerator that generates bytecode based on input.\n3) A Checker that informs the CodeGenerator about types, variables, methods and scopes.\n\nI really enjoyed the complexity of this project, it was tough, but it felt awesome when things finally started working and it really felt like making something of your own from scratch."
+      }
+    }
+  },
+  "404Message": "Oops!\nLooks like you've followed a broken link or entered a URL that doesn't exist on my site.",
+  "404Action": "Go Home"
+}

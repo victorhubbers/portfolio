@@ -2,15 +2,17 @@
   <v-hover>
     <template v-slot:default="{ hover }">
       <v-card color="var(--primary-tint)">
-        <v-img :src="project.image"></v-img>
+        <v-img height="200" :src="projectImage"></v-img>
 
         <v-card-title>
-          <h3 id="project-title">{{ project.title }}</h3>
+          <h3 id="project-title">
+            {{ $t(`portfolioContent.projects.${projectKey}.title`) }}
+          </h3>
         </v-card-title>
 
         <v-card-text>
-          <p id="project-description">
-            {{ project.description }}
+          <p id="project-one-liner">
+            {{ $t(`portfolioContent.projects.${projectKey}.oneLiner`) }}
           </p>
         </v-card-text>
 
@@ -20,7 +22,11 @@
               :light="!themeState.isItSummer"
               color="var(--accent-color)"
               depressed
-              >More info</v-btn
+              :to="{
+                name: `Project Overview`,
+                params: { projectKey }
+              }"
+              >{{ $t("projectOverview.moreInfoButton") }}</v-btn
             >
           </v-overlay>
         </v-fade-transition>
@@ -30,25 +36,30 @@
 </template>
 
 <script>
-import { themeState } from "@/styling";
+import { themeState } from "@/state-management/styling";
 export default {
   name: "ProjectCard",
   props: {
-    project: {
-      type: Object,
-    //   required: true,
+    projectKey: {
+      type: String,
+      required: true,
       default() {
-        return {
-          image: "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg",
-          title: "Project name",
-          description: "Creating a quiz application for in class or in pubs!"
-        };
+        return "Not Found";
+      }
+    },
+    projectImage: {
+      type: String,
+      required: true,
+      default() {
+        return "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg";
       }
     }
   },
-  data: () => ({
-    themeState
-  })
+  data() {
+    return {
+      themeState
+    };
+  }
 };
 </script>
 
@@ -59,7 +70,7 @@ export default {
   color: var(--primary-text-color);
 }
 
-#project-description {
+#project-one-liner {
   font-weight: 300;
   font-size: 1.6rem;
   line-height: 2.2rem;
@@ -67,7 +78,7 @@ export default {
 }
 
 .v-btn {
-    font-weight: 500;
-    font-size: 1.0rem !important;
+  font-weight: 500;
+  font-size: 1rem !important;
 }
 </style>

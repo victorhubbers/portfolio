@@ -1,5 +1,5 @@
 <template>
-  <main id="">
+  <main>
     <Home
       v-intersect="{
         handler: onIntersect,
@@ -51,11 +51,12 @@
 
 <script>
 // @ is an alias to /src
-import * as mainSections from "./main-sections";
-import { threshold, onIntersect } from "@/utils/observer";
+import * as mainSections from "@/components/main-sections";
+import { threshold, onIntersect } from "@/state-management/observer";
 
 export default {
   name: "Main",
+  title: "Victor Hubbers",
   components: { ...mainSections },
   data() {
     return {
