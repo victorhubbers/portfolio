@@ -1,4 +1,4 @@
-// The fields that need translations are found in src > locales, accessed through i18n
+// The fields that need translations are found in src > locales, accessed through the vue-i18n plugin.
 
 const projects = {
   quizzion: {
@@ -17,7 +17,7 @@ const projects = {
     coverImage: "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg",
     demo: {
       type: "video",
-      asset: "",
+      asset: require(`../assets/demos/portfolio.mp4`),
       codeLink: "https://github.com/victorhubbers/portfolio",
       liveLink: "/",
     },
@@ -36,7 +36,7 @@ const projects = {
   },
   javalite: {
     type: "solo",
-    coverImage: "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg",
+    coverImage: require(`../assets/cover-images/javalite.webp`),
     demo: {
       type: "video",
       asset: require(`../assets/demos/javalite.webm`),
