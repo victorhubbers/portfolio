@@ -3,18 +3,18 @@
 const projects = {
   quizzion: {
     type: "group",
-    coverImage: "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg",
+    coverImage: require(`../assets/cover-images/quizzion.webp`),
     demo: {
       type: "video",
       asset: "",
-      codeLink: false,
+      codeLink: "",
       liveLink: "",
     },
     technologies: ["Vue.js", "Vuex", "AWS", "Quasar", "Node.js", "Firebase"],
   },
   portfolio: {
     type: "solo",
-    coverImage: "https://cdn.vuetifyjs.com/images/cards/forest-art.jpg",
+    coverImage: require(`../assets/cover-images/portfolio.webp`),
     demo: {
       type: "video",
       asset: require(`../assets/demos/portfolio.mp4`),
