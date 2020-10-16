@@ -27,7 +27,7 @@ export default {
   padding: 1rem 2rem;
   margin: 0.5rem 1rem 0.5rem 0rem;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 1.6rem !important;
 }
 
 #chip-row {
