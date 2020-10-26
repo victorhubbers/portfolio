@@ -13,7 +13,6 @@
         <v-icon :color="launchIconColor" right small>mdi-launch</v-icon>
       </v-btn>
     </v-col>
-    <!-- <v-col cols="0" sm="2"></v-col> -->
     <v-spacer></v-spacer>
     <v-col cols="12" sm="5">
       <v-btn
