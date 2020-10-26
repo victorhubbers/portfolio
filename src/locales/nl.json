@@ -71,7 +71,8 @@
     "moreInfoButton": "Meer informatie",
     "viewCodeButton": "Code bekijken",
     "visitButton": "Bezoeken",
-    "myContributions": "Mijn bijdrage"
+    "myContributions": "Mijn bijdrage",
+    "codeNotAvailable": "Code privé"
   },
   "404Action": "Naar start",
   "404Message": "Oeps!\nHet lijkt erop dat je een verouderde link bent gevolgd of een URL hebt ingevoerd die niet bestaat."
