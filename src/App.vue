@@ -102,7 +102,7 @@ export default {
   --secondary-text-color: #022b3a;
 
   --mobile-listdot-url: url(assets/greendot.svg);
-  --background-url: url(assets/mountains-big.jpg);
+  --background-url: url(assets/mountains-small.webp);
   --background-blend-mode: lighten;
   --hero-gradient: linear-gradient(
     180deg,
@@ -123,7 +123,7 @@ export default {
   --secondary-text-color: #000000;
 
   --mobile-listdot-url: url(assets/purpledot.svg);
-  --background-url: url(assets/boats-big.jpg);
+  --background-url: url(assets/boats-small.webp);
   --background-blend-mode: normal;
   --hero-gradient: linear-gradient(
     180deg,
