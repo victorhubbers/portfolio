@@ -13,7 +13,6 @@
         <v-icon :color="launchIconColor" right small>mdi-launch</v-icon>
       </v-btn>
     </v-col>
-    <!-- <v-col cols="0" sm="2"></v-col> -->
     <v-spacer></v-spacer>
     <v-col cols="12" sm="5">
       <v-btn
@@ -23,9 +22,12 @@
         block
         color="var(--accent-color)"
         depressed
+        :disabled="!codeLink"
       >
-        {{ $t("projectOverview.viewCodeButton") }}
-        <v-icon color="var(--accent-color)" right small>mdi-launch</v-icon>
+        {{ codeBtnText }}
+        <v-icon v-if="codeLink" color="var(--accent-color)" right small
+          >mdi-launch</v-icon
+        >
       </v-btn>
     </v-col>
   </v-row>
@@ -53,6 +55,11 @@ export default {
       return this.themeState.isItSummer
         ? "white"
         : "var(--secondary-text-color)";
+    },
+    codeBtnText() {
+      return this.codeLink
+        ? this.$t("projectOverview.viewCodeButton")
+        : this.$t("projectOverview.codeNotAvailable");
     }
   }
 };
@@ -66,5 +73,13 @@ export default {
 .v-btn {
   font-weight: bold;
   font-size: 1.3rem !important;
+}
+
+.theme--light.v-btn.v-btn--disabled {
+  color: grey !important;
+}
+.theme--light.v-btn.v-btn--disabled .v-icon,
+.theme--light.v-btn.v-btn--disabled .v-btn__loading {
+  color: grey !important;
 }
 </style>

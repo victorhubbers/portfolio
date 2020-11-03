@@ -1,5 +1,9 @@
 <template>
-  <button class="menu-toggle" :class="open ? 'open' : ''"></button>
+  <button
+    class="menu-toggle"
+    :class="open ? 'open' : ''"
+    aria-label="Menu dropdown button"
+  ></button>
 </template>
 
 <script>
