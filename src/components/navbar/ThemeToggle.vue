@@ -7,6 +7,7 @@
       class="toggle-container"
       role="checkbox"
       :aria-checked="themeState.isItSummer.toString()"
+      aria-label="Theme Toggle"
       tabindex="0"
       @click="switchTheme"
     >
