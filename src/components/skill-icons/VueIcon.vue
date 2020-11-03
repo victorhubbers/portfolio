@@ -11,7 +11,7 @@
         d="M133.579 0.0424225L133.6 0H102.809L83.5 33.9236V33.9378L64.2115 0H33.4209V0.0353518H0L83.5 147L167 0.0424225"
       />
     </svg>
-    <h4 :style="{ width: width + 'px' }">{{ text }}</h4>
+    <p :style="{ width: width + 'px' }">{{ text }}</p>
   </div>
 </template>
 
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-h4 {
+p {
   margin-top: 2rem;
   text-align: center;
   font-weight: 600;

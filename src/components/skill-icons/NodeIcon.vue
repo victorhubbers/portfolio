@@ -50,7 +50,7 @@
         d="M90.6458 91.3965L113.582 78.2271C114.44 77.7345 114.86 76.8257 114.86 75.8416L114.86 75.7385L90.0484 33.6957C89.3335 33.4971 88.5529 33.5838 87.8965 33.9598L65.1456 46.9692L89.8953 91.6889C90.154 91.6276 90.4067 91.5337 90.6458 91.3965Z"
       />
     </svg>
-    <h4 :style="{ width: width + 'px' }">{{ text }}</h4>
+    <p :style="{ width: width + 'px' }">{{ text }}</p>
   </div>
 </template>
 
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style scoped>
-h4 {
+p {
   margin-top: 2rem;
   text-align: center;
   font-weight: 600;

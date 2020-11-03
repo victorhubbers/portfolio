@@ -12,7 +12,7 @@
       />
     </svg>
 
-    <h4 :style="{ width: width + 'px' }">{{ text }}</h4>
+    <p :style="{ width: width + 'px' }">{{ text }}</p>
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style scoped>
-h4 {
+p {
   margin-top: 2rem;
   text-align: center;
   font-weight: 600;
