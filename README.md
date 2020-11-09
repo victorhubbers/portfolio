@@ -1,24 +1,6 @@
-# portfolio
+# Portfolio
 
-## Project setup
-```
-npm install
-```
+This is my the code for my portfolio, if you haven't already, check out the live [website](https://victorhubbers.com) (link also in the About section). 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+The code is public in order to display my abilities.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
