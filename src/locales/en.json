@@ -29,8 +29,8 @@
     "tip": "Interested in working with me, or have any tips you would like to share?\n \nBe sure to contact me!"
   },
   "footer": {
-    "summerText": "Want to cool down?\nFlip the switch at the top right of your screen!",
-    "winterText": "Rather feel some summer vibes?\nFlip the switch at the top right of your screen!"
+    "summerText": "Cool down?\nFlip the switch at the top right of your screen!",
+    "winterText": "Warm up?\nFlip the switch at the top right of your screen!"
   },
   "projectOverview": {
     "moreInfoButton": "More info",
@@ -40,7 +40,7 @@
     "myContributions": "My contributions"
   },
   "portfolioContent": {
-    "aboutText": "I am Victor Hubbers, a 20 year old Software Engineering student at Saxion Deventer (the Netherlands). I am naturally curious, I love learning new things and I would consider myself a quick study. I believe those characteristics suit the software engineering field perfectly, because they allow me to try new things, adapt very quickly, and keep an open mind.\n\nDuring my studies I've learned to communicate and work with people from very different backgrounds compared to my own. I specifically chose to go to Saxion Deventer because they offered an international Software Engineering program. This means that all my lessons are taught in English, and about 60% of my classmates are from abroad!\nAt the moment I'm working with students from the nursing and creative business programmes, in an multidisciplinary research group.",
+    "aboutText": "I am Victor Hubbers, a 20 year old Software Engineering student at Saxion Deventer (the Netherlands). I am naturally curious, I love learning new things and I would consider myself a quick study. I believe those characteristics suit the software engineering field perfectly, because they allow me to try new things, adapt very quickly, and keep an open mind.\n\nDuring my studies I've learned to communicate and work with people from very different backgrounds compared to my own. I specifically chose to go to Saxion Deventer because they offered an international Software Engineering program. This means that all my lessons are taught in English, and about 60% of my classmates are from abroad!\nAt the moment I'm working with students from the nursing and creative business programmes, in a multidisciplinary research group.",
     "skillsText": "In the past few years I have learned many essential skills in the area of software development, such as working with scrum and git. I started off learning Java, mostly object oriented, but with a few sidesteps to other fields such as Android development and the web (Spring + Thymeleaf). After getting down the basics, I moved on to more complex things, such as concurrency, complexity and algorithms. Besides Java, I also learned both back- and frontend web development with Javascript and the common frameworks. \n\nThis is a very simple overview on some of my most valuable skills, for more details about the technologies that I use I recommend that you to have a look at some of my projects!",
     "projects": {
       "quizzion": {
@@ -70,7 +70,7 @@
       "javalite": {
         "title": "JavaLite",
         "oneLiner": "Creating my own programming language and compiler in Java!",
-        "description": "The JavaLite project was part of a course called 'Compilers and Operating Systems'. I had to design and program my own programming language and accompanying compiler, all based on Jasmin bytecode. Me not being the most creative person out there, it ended up being a simplified, stripped down version of Java. I called it JavaLite.\n\nThe project really wasn't about making the most perfect and original programming language, we only had about 6 weeks to work on it, so that was never even possible. The true goal of this project was to get an understanding of how things work, and also why some things don't work. There were 3 main components of this project:\n1) The grammar of the language.\n2) A CodeGenerator that generates bytecode based on input.\n3) A Checker that informs the CodeGenerator about types, variables, methods and scopes.\n\nI really enjoyed the complexity of this project, it was tough, but it felt awesome when things finally started working and it really felt like making something of your own from scratch."
+        "description": "The JavaLite project was part of a course called 'Compilers and Operating Systems'. The assignment was to design and program your own programming language and accompanying compiler, all based on Jasmin bytecode. Not being the most creative person out there, it ended up being a simplified, stripped down version of Java, called JavaLite.\n\nThe project really wasn't about making the most perfect and original programming language, we only had about 6 weeks to work on it, so that was never even possible. The true goal of this project was to get an understanding of how things work, and also why some things don't work. There were 3 main components of this project:\n1) The grammar of the language.\n2) A CodeGenerator that generates bytecode based on input.\n3) A Checker that informs the CodeGenerator about types, variables, methods and scopes.\n\nI really enjoyed the complexity of this project, it was tough, but it felt awesome when things finally started working and it really felt like making something of your own from scratch."
       }
     }
   },
