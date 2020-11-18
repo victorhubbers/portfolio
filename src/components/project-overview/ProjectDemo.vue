@@ -11,9 +11,10 @@
       :poster="coverImage"
     >
       <source
-        v-if="demo.type === `video`"
-        :src="demo.asset"
-        type="video/webm"
+        v-for="(asset, type) in demo.assets"
+        :key="type"
+        :src="asset"
+        :type="`video/${type}`"
       />
     </video>
   </div>
@@ -25,15 +26,14 @@ export default {
   props: {
     coverImage: {
       type: String,
-      required: true
+      required: true,
     },
     demo: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

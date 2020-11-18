@@ -26,7 +26,10 @@ const projects = {
     coverImage: require(`../assets/cover-images/portfolio.webp`),
     demo: {
       type: "video",
-      asset: require(`../assets/demos/portfolio.mp4`),
+      assets: {
+        mp4: require(`../assets/demos/portfolio.mp4`)
+      },
+      // asset: require(`../assets/demos/portfolio.mp4`),
       codeLink: "https://github.com/victorhubbers/portfolio",
       liveLink: "/",
     },
@@ -37,7 +40,10 @@ const projects = {
     coverImage: require(`../assets/cover-images/cards.webp`),
     demo: {
       type: "video",
-      asset: require(`../assets/demos/cards.webm`),
+      assets: {
+        webm: require(`../assets/demos/cards.webm`),
+        mp4: require(`../assets/demos/cards.mp4`)
+      },
       codeLink: "https://github.com/victorhubbers/Playing-Cards",
       liveLink: "https://cards.victorhubbers.com",
     },
@@ -48,7 +54,10 @@ const projects = {
     coverImage: require(`../assets/cover-images/javalite.webp`),
     demo: {
       type: "video",
-      asset: require(`../assets/demos/javalite.webm`),
+      assets: {
+        webm: require(`../assets/demos/javalite.webm`),
+        mp4: require(`../assets/demos/javalite.mp4`)
+      },
       codeLink: "https://github.com/victorhubbers/JavaLite",
       liveLink: "https://javalite.victorhubbers.com",
     },
