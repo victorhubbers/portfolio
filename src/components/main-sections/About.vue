@@ -18,15 +18,27 @@
 
 <script>
 import { themeState } from "@/state-management/styling";
+import { hasWebp } from "@/portfolio-content";
+
 export default {
   name: "About",
+  data() {
+    return {
+      imageFormat: "",
+    };
+  },
   computed: {
     imageSrc() {
-      return themeState.isItSummer
-        ? require("../../assets/s-picture.webp")
-        : require("../../assets/w-picture.webp");
-    }
-  }
+      if (!this.imageFormat) return "";
+      else
+        return themeState.isItSummer
+          ? require(`../../assets/s-picture${this.imageFormat}`)
+          : require(`../../assets/w-picture${this.imageFormat}`);
+    },
+  },
+  async created() {
+    this.imageFormat = (await hasWebp()) ? ".webp" : ".png";
+  },
 };
 </script>
 

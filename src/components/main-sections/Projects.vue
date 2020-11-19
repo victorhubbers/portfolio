@@ -4,7 +4,7 @@
     <v-container fluid>
       <v-row>
         <v-col
-          v-for="(project, projectKey) in projects"
+          v-for="(project, projectKey) in $projects"
           :key="projectKey"
           cols="12"
           sm="6"
@@ -20,16 +20,10 @@
 
 <script>
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/portfolio-content";
 
 export default {
   name: "Projects",
   components: { ProjectCard },
-  data() {
-    return {
-      projects
-    };
-  }
 };
 </script>
 
