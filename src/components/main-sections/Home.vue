@@ -40,6 +40,7 @@ export default {
   position: absolute;
   max-width: 100%;
   width: fit-content;
+  width: intrinsic;
   min-height: 100vh;
   left: 0px;
   top: 0px;

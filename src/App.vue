@@ -10,12 +10,13 @@
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/Footer";
 import { setTheme } from "@/state-management/styling";
+import { hasWebp } from "@/portfolio-content";
 
 export default {
   name: "App",
   components: {
     Navbar,
-    Footer
+    Footer,
   },
   computed: {
     locale() {
@@ -39,7 +40,7 @@ export default {
         default:
           return "9vw";
       }
-    }
+    },
   },
   watch: {
     locale() {
@@ -47,18 +48,24 @@ export default {
     },
     breakpoint() {
       this.setPadding();
-    }
+    },
   },
   created() {
     setTheme();
     this.setPadding();
+    this.setImgFormat();
   },
   methods: {
     setPadding() {
       let root = document.documentElement;
       root.style.setProperty("--side-padding", this.padding);
-    }
-  }
+    },
+    async setImgFormat() {
+      const webpClass = (await hasWebp()) ? "webp" : "no-webp";
+      let root = document.documentElement;
+      root.classList.add(webpClass);
+    },
+  },
 };
 </script>
 
@@ -90,6 +97,19 @@ export default {
   scroll-behavior: smooth;
 }
 
+:root[theme="winter"].webp {
+  --background-url: url(assets/mountains.webp);
+}
+:root[theme="winter"].no-webp {
+  --background-url: url(assets/mountains.jpg);
+}
+:root[theme="summer"].webp {
+  --background-url: url(assets/boats.webp);
+}
+:root[theme="summer"].no-webp {
+  --background-url: url(assets/boats.jpg);
+}
+
 :root[theme="winter"] {
   --primary-color: #022b3a;
   --primary-tint: #043749;
@@ -102,7 +122,6 @@ export default {
   --secondary-text-color: #022b3a;
 
   --mobile-listdot-url: url(assets/greendot.svg);
-  --background-url: url(assets/mountains-small.webp);
   --background-blend-mode: lighten;
   --hero-gradient: linear-gradient(
     180deg,
@@ -123,7 +142,6 @@ export default {
   --secondary-text-color: #000000;
 
   --mobile-listdot-url: url(assets/purpledot.svg);
-  --background-url: url(assets/boats-small.webp);
   --background-blend-mode: normal;
   --hero-gradient: linear-gradient(
     180deg,

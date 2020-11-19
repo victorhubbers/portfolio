@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 import i18n from "@/plugins/i18n";
 import Main from "@/views/Main.vue";
 import ViewWrapper from "@/ViewWrapper.vue";
-import { projects } from "@/portfolio-content";
 
 Vue.use(VueRouter);
 
@@ -36,11 +35,11 @@ const routes = [
       {
         path: "projects/:projectKey",
         name: "Project Overview",
-        beforeEnter: (to, from, next) => {
+        beforeEnter:  (to, from, next) => {
           const projectExists = Object.prototype.hasOwnProperty.call(
-            projects,
+            router.app.$projects,
             to.params.projectKey
-          );
+            );
 
           if (projectExists) next();
           else next({ path: `${i18n.locale}/404` });

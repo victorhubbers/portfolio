@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import { projects } from "@/portfolio-content";
 import ChipRow from "@/components/project-overview/ChipRow";
 import ProjectDemo from "@/components/project-overview/ProjectDemo";
 import ButtonRow from "@/components/project-overview/ButtonRow";
@@ -49,14 +48,14 @@ export default {
   data() {
     return {
       currentSection,
-      projectKey: this.$route.params.projectKey
+      projectKey: this.$route.params.projectKey,
     };
   },
   computed: {
     project() {
       return {
         //combines translations and other content into a single project object.
-        ...projects[this.projectKey],
+        ...this.$projects[this.projectKey],
         ...this.$t(`portfolioContent.projects.${this.projectKey}`)
       };
     }
