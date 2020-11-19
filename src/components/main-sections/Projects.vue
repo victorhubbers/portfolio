@@ -20,15 +20,18 @@
 
 <script>
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/portfolio-content";
+import { loadProjects } from "@/portfolio-content";
 
 export default {
   name: "Projects",
   components: { ProjectCard },
-  data() {
+    data() {
     return {
-      projects
+      projects: []
     };
+  },
+  async mounted(){
+    this.projects = await loadProjects();
   }
 };
 </script>
