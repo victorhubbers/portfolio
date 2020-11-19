@@ -1,5 +1,5 @@
 <template>
-  <div v-if="project.type" id="project-details">
+  <div id="project-details">
     <h2 class="section-title">{{ project.title }}</h2>
 
     <v-container fluid>
@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import { loadProjects } from "@/portfolio-content";
 import ChipRow from "@/components/project-overview/ChipRow";
 import ProjectDemo from "@/components/project-overview/ProjectDemo";
 import ButtonRow from "@/components/project-overview/ButtonRow";
@@ -50,21 +49,19 @@ export default {
     return {
       currentSection,
       projectKey: this.$route.params.projectKey,
-      projects: []
     };
   },
   computed: {
     project() {
       return {
         //combines translations and other content into a single project object.
-        ...this.projects[this.projectKey],
+        ...this.$projects[this.projectKey],
         ...this.$t(`portfolioContent.projects.${this.projectKey}`)
       };
     }
   },
-  async mounted() {
+  mounted() {
     this.currentSection.id = "#projects";
-    this.projects = await loadProjects();
   }
 };
 </script>

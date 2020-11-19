@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 import i18n from "@/plugins/i18n";
 import Main from "@/views/Main.vue";
 import ViewWrapper from "@/ViewWrapper.vue";
-import { loadProjects } from "@/portfolio-content";
 
 Vue.use(VueRouter);
 
@@ -36,9 +35,9 @@ const routes = [
       {
         path: "projects/:projectKey",
         name: "Project Overview",
-        beforeEnter: async (to, from, next) => {
+        beforeEnter:  (to, from, next) => {
           const projectExists = Object.prototype.hasOwnProperty.call(
-            await loadProjects(),
+            router.app.$projects,
             to.params.projectKey
             );
 
