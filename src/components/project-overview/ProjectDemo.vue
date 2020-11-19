@@ -6,6 +6,7 @@
       loop
       muted
       preload="none"
+      playsinline
       width="100%"
       :controls="demo.type === `video`"
       :poster="coverImage"
